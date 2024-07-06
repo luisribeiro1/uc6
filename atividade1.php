@@ -11,7 +11,7 @@ $texto = "<p><big> O $pais é o maior país da $regiao. Alguns dados sobre o $pa
 <li>Valor do salário mínimo: <strong> $salariominimo</strong></li>  
 <li>População \"aproximadamente\" <strong> $populacao </strong> de pessoas </li>
 <li>Número de estados: <strong> $estados + o Distrito Federal </strong> </li>
-<li>Presidente da República: <strong> $presidente. </strong>
+<li>Presidente da República: <strong> $presidente. </strong></li>
 </ul>
 </p>
 </big>";
