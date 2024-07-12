@@ -5,6 +5,14 @@ $salariominimo = "1.412,00";
 $populacao = "203 milhões";
 $estados = 26;
 $presidente = "Luis Inácio Lula da Silva";
+
+// $texto = "<p>O $pais é o maior país da $regiao. Alguns dados sobre o $pais:</p>
+// <ul>
+//     <li>Valor do salário mínimo: R$ $salariominimo.</li>
+//     <li>População: \"aproximadamente\" $populacao de pessoas.</li>
+//     <li>Número de estados: $estados + o DF.</li>
+//     <li>Presidente da República: $presidente.</li>
+// </ul>";
 ?>
 
 <!DOCTYPE html>
