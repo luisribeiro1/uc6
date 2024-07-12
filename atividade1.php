@@ -6,7 +6,7 @@ $populacao = "204 milhões";
 $estados = 26;
 $presidente = "Luis Inácio Lula da Silva";
 
-$conteudo = "<big><p> O $pais é o maior país da $regiao. Alguns dados sobre o $pais:<p>
+$conteudo = "<big><p> O $pais é o maior país da $regiao. Alguns dados sobre o $pais:</p>
 <ul>
 <li>Valor do salário mínimo: <strong>R\$ $salariominimo</strong></li>
 <li>População: \"aproximadamente\" <strong>$populacao</strong> de pessoas</li>
