@@ -41,3 +41,13 @@ foreach($lista as $item){
 
     echo "o número $item é $pi, pois o resto da divisão é $resto. Linha: 42 <br>";
 }
+
+echo "<br>-----------------------<br>";
+
+# WHILE
+$x = 1;
+while($x <= 10){
+    echo "$x <br>";
+
+    $x++;
+}
