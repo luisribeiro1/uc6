@@ -7,11 +7,21 @@ $estados = 26;
 $presidente = "Luis Inácio Lula da Silva";
 
 $texto = "<h1>O $pais é o maior país da América Latina. Alguns dados sobre o $pais</h1>";
-$item1 = "<p>Valor do sálario mínimo: <strong>$salariominimo</strong></p>";
-$item2 = "<p>População: \"aproximadamente\" <strong>$populacao</strong> de pessoas</p>";
-$item3 = "<p>Número de estados: <strong>$estados + o Distrito Federal</strong><p>";
-$item4 = "<p>Presidente da República: <strong>$presidente</strong></p>";
-
+$item1 = "
+<ul>
+<li>
+<p>Valor do sálario mínimo: <strong>$salariominimo</strong></p>
+</li>
+<li>
+<p>População: \"aproximadamente\" <strong>$populacao</strong> de pessoas</p>
+</li>
+<li>
+<p>Número de estados: <strong>$estados + o Distrito Federal</strong><p>
+</li>
+<li>
+<p>Presidente da República: <strong>$presidente</strong></p>
+</li>
+</ul>";
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +33,6 @@ $item4 = "<p>Presidente da República: <strong>$presidente</strong></p>";
 </head>
 <body>
     <?php echo $texto ?>    
-    <ul>
-        <li><?php echo $item1 ?></li>
-        <li><?php echo $item2 ?></li>
-        <li><?php echo $item3 ?></li>
-        <li><?php echo $item4 ?></li>
-    </ul>
+    <?php echo $item1 ?>   
 </body>
 </html>
