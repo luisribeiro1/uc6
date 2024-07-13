@@ -25,5 +25,32 @@ for($x=1; $x<=10; $x++){
   echo "$valor x $x = $resultado <br>";
 }
 
-?>
+echo "<br>-------------------------<br>";
 
+
+#for Each 
+$lista = [3, 6, 7, 10, 13, 17, 20, 21, 25, 32]; //array
+
+foreach($lista as $item){
+
+  $resto = $item % 2;      // módulo ou resto da divisão 
+
+  $pi = $resto == 0 ? "Par" : "impar"; 
+  // $pi = $resto ? "impar" : "Par"; 
+  
+  // echo "$item -$resto <br>";
+  echo "o número $item é $pi, pois o resto da dvisão é $resto. Linha: 42 <br>";
+}
+
+
+echo "<br>-------------------------<br>";
+
+
+# WHIlE
+
+$x = 1;
+while($x <= 10 ){
+  echo "$x <br>";
+
+  $x++;
+}
