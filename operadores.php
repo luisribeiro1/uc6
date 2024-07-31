@@ -23,4 +23,4 @@ echo $resultado . "<br>";
 // Usando o segundo exemplo
 $porcentual = $porcentual / 100;
 $resultado = $numero * $porcentual;
-echo $resultado;gi
+echo $resultado;
