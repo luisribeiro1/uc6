@@ -6,7 +6,7 @@ for ($i=1; $i <=5; $i++) {
   $soma+= $i ;
 }
 echo $soma;
-echo "<br>-------------------------------<br>";
+echo "<br>----------------------------------------<br>";
 
 #Atividade - Tabuado do 7
 
@@ -17,7 +17,7 @@ for ($i=1; $i<=10; $i++) {
   $resultado = $sete * $i;
   echo "$sete x $i = $resultado <br>";
 }
-echo "<br>-------------------------------<br>";
+echo "<br>----------------------------------------<br>";
 
 # Comando FOREACH
 
@@ -31,7 +31,7 @@ foreach ($lista as $item) {
 
   echo "o número $item é $pi, pois o resto da divisão é $resto <br>";
 };
-echo "<br>-------------------------------<br>";
+echo "<br>---------------------------------------<br>";
 
 # Comando WHILE
 
@@ -41,7 +41,6 @@ while ($x <= 10) {
 
   $x++;
 }
-
-
+echo "<br>---------------------------------------<br>";
 
 ?>
