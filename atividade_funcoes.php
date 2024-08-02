@@ -40,13 +40,8 @@ function medioValor($lista){
     $contar = 0;
 
     foreach($lista as $valor){
-     if($valor > $resultado){
-         $soma = $soma + $resultado;
+         $soma = $soma + $valor;
          $contar+=1;
-
-         $resultado = $valor;
-
-     }
      }
 
      $resultado = $soma / $contar;
