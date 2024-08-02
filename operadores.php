@@ -48,3 +48,10 @@ $b = "5"; //string
 var_dump($a === $b);
 
 echo "<br>-------------------------<br>";
+
+# Somar um valor
+$valor = $valor + x;
+$valor+=x;
+
+$contar = $contar + 1;
+$contar +=1;
