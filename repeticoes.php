@@ -28,6 +28,7 @@ foreach($lista as $item){
 
     echo "O numero $item é $pi, pois o resto da divisão é $resto, linha: 292 <br>";
   
+
 }
 
 echo "<br>-------------------------<br>";
