@@ -13,7 +13,8 @@ echo "<br>Parte do texto: " . substr($texto,-12);    # Final do texto
 
 $carros = ["Gol","Uno","Fit","Fiesta","C3"];
 $lista_string = implode(",",$carros);
-echo "<br>Lista : $lista_string";
+echo "<br>Lista : $lista_string"
+;
 
 $lista_string = "Mamão, Tomate, Uva, Maça, Laranja, Limão";
 $lista_array = explode(",",$lista_string);
