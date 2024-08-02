@@ -46,3 +46,10 @@ operadores de comparação
 $a = 5; 
 $b = "5";
 var_dump($a === $b);
+
+# somar um valor 
+$valor = $valor + x;
+$valor+=x;
+
+$contar = $contar + 1;
+$contar +=1;
