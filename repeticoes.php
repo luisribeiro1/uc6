@@ -31,7 +31,7 @@ $lista = [3, 6, 7, 10, 13, 17, 20, 21, 25, 32]; //Array
 
 foreach($lista as $item){
     
-    $resto = $item % 2; //Mod ou modulo ou resto da divisao
+    $resto = $item %  2; //Mod ou modulo ou resto da divisao
 
     #echo "$item - $resto <br>";
 
