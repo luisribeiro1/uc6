@@ -5,7 +5,7 @@ $float = 22.65;
 $decimal = 23.84;
 $texto = "125.89";
 
-# casting o uconversão de tipo
+# casting conversão de tipo
 $texto = (float)$texto;
 
 echo gettype($texto);

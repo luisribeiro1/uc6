@@ -1,0 +1,55 @@
+Crie um arquivo atividades_funcoes.php
+
+Atividade 1:
+Criar uma função maiorValor($lista)
+Ela receberá como parâmetro uma lista de valores numéricos.
+Deverá devolver o maior valor da lista.
+
+
+Atividade 2:
+Criar uma função menorValor($lista)
+Ela receberá como parâmetro uma lista de valores numéricos.
+Deverá devolver o menor valor da lista.
+
+Atividade 3:
+Criar uma função valorMedio($lista)
+Ela receberá como parâmetro uma lista de valores numéricos.
+Deverá devolver o valor médio da lista.
+
+Atividade 4:
+Crie a função numeroPorExtenso()
+Esta função deverá receber um número no intervalo de 0 a 99 e
+deverá devolver o número por extenso
+
+7 - sete
+13 - treze
+28 - vinte e oito
+
+0 1 2 3 4 5 6 7 8 9 
+10 11 12 13 14 15 16 17 18 19 
+20 21 22 ... 99
+
+
+Atividade 5:
+Crie a função dataInvertida($data,$tipoDeConversao)
+Ela deverá receber uma data e inverter seguindo os modelos abaixo:
+Recebe 02/08/2024 inverte para 2024-02-08
+Recebe 2024-02-08 inverte para 02/08/2024
+TipoDeconversoo é um parâmetro que indicará a ordem acima
+Depois retorne a data invertida
+
+Para esta atividade pode ser usada as funções nativas do PHP, explode() ou substr()
+
+Atividade 6:
+Crie a função converteTemperatura($temperatura,$tipoDeConversao).
+Recebe celsius e converte para fahrenheit
+Recebe fahrenheit e converte para celsius
+TipoDeconversao é um parâmetro que indicará a ordem acima
+Depois retorne a função convertida
+
+
+
+
+
+
+

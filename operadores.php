@@ -20,3 +20,32 @@ echo $resultado."<br>";
 $percentual = $percentual / 100;
 $resultado = $numero * $percentual;
 echo $resultado;
+
+echo "<br>---------------------<br>";
+
+/* Operadores Lógicos 
+&& and
+|| or
+
+Operadores de Comparação
+= (atribuição)
+== (compara valor)
+=== (compara valor e tipo)
+!= (diferente)
+> (maior)
+>=(maior ou igual)
+< (menor)
+<= (menor ou igual)
+*/
+$a = 5;
+$b = "5";
+
+var_dump ($a == $b);
+
+# somar um valor
+$valor = $valor + x;
+$valor+=x;
+
+$contar = $contar + 1;
+$contar +=1;
+
