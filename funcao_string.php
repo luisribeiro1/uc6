@@ -13,14 +13,19 @@ echo "<br>Parte do texto: " . substr($texto,0,10); // inicio do tetxo
 echo "<br>Parte do texto: " . substr($texto,-10); // final do tetxo
 echo "<br>Letras minúsculas: " . strtolower($texto);
 
-$carros = ["Gol", "Uno", "Fit", "Fiesta", "C3"];
+echo '<hr/>';
 
+$carros = ["Gol", "Uno", "Fit", "Fiesta", "C3"];
 $lista_string = implode(", ",$carros);
 echo "<br>LISTA: $lista_string";
 
 $lista_string = "Melão, Tomate, Uva, Maçã, Laranja, Limão";
 $lista_array = explode(", ", $lista_string);
-echo "<br>---------------------<br>";
-var_dump($lista_array)
+
+echo '<hr/>';
+
+echo "<pre>";
+var_dump($lista_array);
+echo "<pre/>";
 
 ?>
