@@ -8,19 +8,46 @@ Operadores matemáticos
 * (multiplicação)
 % (módulo - resto da divisão)
 
-Fórmula para porcentagem
-500 * 20 / 100 = 100
-500 * 0.2 = 100
+Fómula da Porcentagem
+500 * 0.2= 100
 */
 
 $numero = 650;
-$porcentual = 17;
+$percentual = 17;
 
-// Usando o primeiro exemplo
-$resultado = $numero * $porcentual / 100;
-echo $resultado . "<br>";
+//Usando o primeiro exemplo
+ $resultado = $numero * $percentual / 100;
+echo $resultado .  "<br>";
 
 // Usando o segundo exemplo
-$porcentual = $porcentual / 100;
-$resultado = $numero * $porcentual;
+$percentual = $percentual / 100;
+$resultado = $numero * $percentual;
 echo $resultado;
+
+echo "<br>---------------------<br>";
+
+/* Operadores Lógicos 
+&& and
+|| or
+
+Operadores de Comparação
+= (atribuição)
+== (compara valor)
+=== (compara valor e tipo)
+!= (diferente)
+> (maior)
+>=(maior ou igual)
+< (menor)
+<= (menor ou igual)
+*/
+$a = 5;
+$b = "5";
+
+var_dump ($a == $b);
+
+#somar um valor
+$valor = valor +x;
+$valor+=x;
+
+$contar = $contar + 1;
+$contar +=1;

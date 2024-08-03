@@ -26,3 +26,4 @@ echo "<h2>A variável \$idade é do tipo {$tipo} e o seu valor é {$idade}</h2>"
 # Dentro do echo . é usado como concatenação
 # Dentro do echo \ é usado como "escape" que neutraliza a execução do código seguinte
 # O echo produz resultado visual para o usuário em forma de HTML
+
