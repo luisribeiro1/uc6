@@ -42,7 +42,7 @@ function valorMedio($lista){
     count($lista);
 
     foreach($lista as $numero){
-        $soma +=  $numero ;
+        $soma + =  $numero ;
         
                 
     }
@@ -95,7 +95,7 @@ function numeroPorExtenso($numero){
 
 echo "<br> o numero por extenso é: " . numeroPorExtenso(88); 
 
-
+echo "<br>------------------------<br>";
 
 
 
@@ -118,3 +118,33 @@ function dataInvertida($data, $tipoDeConversao){
 
 echo"Data Invertida (dia_mes_ano): " . dataInvertida("02/08/2024","dia_mes_ano") ."<br>";
 echo"Data Invertida (ano_mes_dia): " . dataInvertida("2024/08/02","ano_mes_dia") ."<br>";
+
+echo "<br>------------------------<br>";
+
+function converterTemperatura($temperatura, $tipodeConversao){
+    if ($tipoDeConversao = "celsius para Fahrenheit"){
+        
+        return ($temperatura *9/5) + 32;
+    }
+    else{
+        
+        return ($temperatura -32) * 5/9;
+
+
+    
+    }
+}
+
+$temperaturaCelsius = 32; #celsius
+$temperaturaFahrenheit = converterTemperatura($temperaturaCelsius, "converte para Fahrenheit");
+echo "temperatura em Fahrenheit: " .$temperaturaFahrenheit . "\n" ;
+
+$temperaturaFahrenheit = 64; #Fahrenheit
+$temperaturaCelsius = converterTemperatura($temperaturaFahrenheit, "converte para Celsius");
+echo "temperatura em celsius: " .$temperaturaCelsius,  "\n" ;
+
+
+
+
+
+
