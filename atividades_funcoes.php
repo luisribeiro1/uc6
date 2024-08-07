@@ -127,5 +127,19 @@ echo dataInvertida("2024-03-04", "banco-de-dados");
 
 # Atividade 6
 
+function tempInvertida($temp, $tipoDeConversao){
 
+    $conversao ="";
 
+    if($tipoDeConversao == "Fahrenheit"){
+    $conversao = "<br>Esta é a temperatura em $temp C° convertida em Fahrenheit:  " . $temp * 1.8 + 32;
+    }
+    else{
+        $conversao = "<br>Esta é a temperatura em $temp F° convertida em Celsius:  " . number_format(($temp - 32) / 1.8); 
+    }
+return $conversao;
+
+}
+
+echo tempInvertida(40, "Fahrenheit");
+echo tempInvertida(90, "Celsius");
