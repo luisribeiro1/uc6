@@ -10,6 +10,11 @@ $arquivo = "arquivos_de_dados/estados.csv";
 $dados = fopen($arquivo, "r");
 
 $tabela = "";
+$norte = "";
+$sul = "";
+$sudeste = "";
+$nordeste = "";
+$centroOeste = "";
 
 # Percorrer dados, até que encontre o final do arquivo.
 while(!feof($dados)) {
@@ -71,7 +76,7 @@ while(!feof($dados)) {
                 $corFundo = "bg-secondary-subtle";
             }
             
-            $sul = "SC";
+            $sul =  "SC";
              
             if($uf == $sul){
                 $tabela.="
