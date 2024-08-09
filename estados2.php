@@ -10,6 +10,11 @@ $arquivo = "arquivos_de_dados/estados.csv";
 $dados = fopen($arquivo, "r");
 
 $tabela = "";
+$norte = "";
+$nordeste = "";
+$centroOeste = "";
+$sudeste = "";
+$sul = "";
 
 # Percorrer dados, até que encontre o final do arquivo.
 while(!feof($dados)) {
@@ -46,11 +51,6 @@ while(!feof($dados)) {
                 <th>$area</th>
                 <th>$homens</th>
                 <th>$mulheres</th> 
-                <th>$pop2000</th>
-                <th>$pop2010</th>
-                <th>$pop2021</th>
-                <th>$urbana</th>
-                <th>$rural</th>
             </tr>
             ";
         }else{
@@ -62,31 +62,50 @@ while(!feof($dados)) {
             $pop2021_f = number_format($pop2021,0,"",".");
             $rural_f = number_format($rural,0,"",".");
             $urbana_f = number_format($urbana,0,"",".");
-
-            # Mostra os estados onde a quantidade de mulheres são maiores que homens.
-            if ($mulheres > $homens)
             
-            $tabela.="
+            if ($cidades >= 300) {
+                $corFundo = "bg-primary-subtle";
+            }else if ($cidades <= 100) {
+                $corFundo = "bg-success-subtle";
+            }else {
+                $corFundo = "bg-secondary-subtle";
+            }
+
+            $tabela_linha ="
             <tr>
-                <td>$uf</td>
-                <td>$nomeEstado</td>
-                <td>$cidades</td>
-                <td>$capital</td>
-                <td>$gentilico</td>
-                <td>$area</td>
-                <td>$homens_f</td>
-                <td>$mulheres_f</td>
-                <td>$pop2000_f</td>
-                <td>$pop2010_f</td>
-                <td>$pop2021_f</td>
-                <td>$urbana_f</td>
-                <td>$rural_f</td>   
+                <td class = '$corFundo'>$uf</td>
+                <td class = '$corFundo'>$nomeEstado</td>
+                <td class = '$corFundo'>$cidades</td>
+                <td class = '$corFundo'>$capital</td>
+                <td class = '$corFundo'>$gentilico</td>
+                <td class = '$corFundo'>$area</td>
+                <td class = '$corFundo'>$homens_f</td>
+                <td class = '$corFundo'>$mulheres_f</td>  
             </tr>
             ";
+
+            if ($uf == 'AM' or $uf == 'RR' or $uf == 'AP' or $uf == 'PA' or $uf == 'TO' or $uf == 'RO' or $uf == 'AC') {
+                $norte.=$tabela_linha;
+            }elseif ($uf == 'MA' or $uf == 'PI' or $uf == 'CE' or $uf == 'RN' or $uf == 'PE' or $uf == 'PB' or $uf == 'SE' or $uf == 'AL' or $uf == 'BA') {
+                $nordeste.=$tabela_linha;
+            }elseif ($uf == 'MT' or $uf == 'MS' or $uf == 'GO') {
+                $centroOeste.=$tabela_linha;
+            }elseif ($uf == 'SP' or $uf == 'RJ' or $uf =='ES' or $uf == 'MG') {
+                $sudeste.=$tabela_linha;
+            }
+            
+            if ($uf == 'RS' or $uf == 'PR' or $uf == 'SC') {
+                $sul.=$tabela_linha;
+            }
         }    
     }
 }
 
+$tabela .= "<tr><td colspan = '7'>Região Norte</td></tr>$norte";
+$tabela .= "<tr><td colspan = '9'>Região Nordeste</td></tr>$nordeste";
+$tabela .= "<tr><td colspan = '3'>Região Centro Oeste</td></tr>$centroOeste";
+$tabela .= "<tr><td colspan = '4'>Região Sudeste</td></tr>$sudeste";
+$tabela .= "<tr><td colspan = '3'>Região Sul</td></tr>$sul";
 $titulo = "Dados Populacionais dos Estados brasileiros.";
 
 #Localizar a marcação [[titulo]] e substituir pelo conteúdo da variável $titulo.
