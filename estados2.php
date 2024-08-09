@@ -54,6 +54,7 @@ while(!feof($dados)){
             <th class='text-end'>$urbana</th>
             <th class='text-end'>$pop2010</th>
             <th class='text-center'>$capital</th>
+            <th class='text-center'>$quantidade_cidades</th>
         </tr>";
     }else{
 
