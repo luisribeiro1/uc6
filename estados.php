@@ -61,6 +61,7 @@ while(!feof($dados)){
         $rural_f = number_format($rural,0,"",".");
         $pop2010_f = number_format($pop2010,0,"",".");
 
+        # Mostrar os estados que tem a população de mulheres > homens
         if($mulheres > $homens) {
         $tabela.="
     <tr>
