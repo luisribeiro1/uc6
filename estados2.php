@@ -9,6 +9,8 @@ $arquivo = "arquivos_de_dados/estados.csv";
 # "r" indica que o arquivo aberto será apenas para leitura.
 $dados = fopen($arquivo, "r");
 
+
+
 $tabela = "";
 $norte = "";
 $sul = "";
@@ -67,6 +69,10 @@ while(!feof($dados)) {
             # Mostra os estados onde a quantidade de mulheres são maiores que homens.
             // if ($mulheres > $homens)
             
+            
+
+        
+            
             if($quantidade_cidades >= 300){
                 $corFundo = "bg-info-subtle";
             }else if($quantidade_cidades <= 100){
@@ -75,27 +81,10 @@ while(!feof($dados)) {
             else{
                 $corFundo = "bg-secondary-subtle";
             }
-            
-            $sul =  "SC";
-             
-            if($uf == $sul){
-                $tabela.="
-                <tr>
-                    <td class='$corFundo'>$uf</td>
-                    <td class='$corFundo'>$nomeEstado</td>
-                    <td class='$corFundo'>$cidades</td>
-                    <td class='$corFundo'>$homens_f</td>
-                    <td class='$corFundo'>$mulheres_f</td>
-                    <td class='$corFundo'>$pop2021_f</td>
-                    <td class='$corFundo'>$urbana_f</td>
-                    <td class='$corFundo'>$capital</td>
-                </tr>
-                ";
-            }
 
 
 
-            $tabela.="
+            $tabela_linha ="
             <tr>
                 <td class='$corFundo'>$uf</td>
                 <td class='$corFundo'>$nomeEstado</td>
@@ -107,12 +96,36 @@ while(!feof($dados)) {
                 <td class='$corFundo'>$capital</td>
             </tr>
             ";
+
+            if($uf == "SC" or $uf == "PR" or $uf == "RS"){
+                $sul.=$tabela_linha;
+            }
+            elseif($uf == "AM" or $uf == "RR" or $uf == "AP" or $uf == "PA" or $uf == "AC" or $uf == "RO" or $uf == "TO" ){
+                $norte.=$tabela_linha;
+            }
+            elseif($uf == "MA" or $uf == "PI" or $uf == "BA" or $uf == "CE" or $uf == "RN" or $uf == "PB" or $uf == "PE"  or $uf == "AL"  or $uf == "SE"){
+                $nordeste .=$tabela_linha;
+            }
+
+            elseif($uf == "MT" or $uf == "MS" or $uf == "GO" or $uf == "DF"){
+                $centroOeste.= $tabela_linha;
+            }
+            elseif($uf == "SP" or $uf == "MG" or $uf == "RJ" or $uf == "ES"){
+                $sudeste.= $tabela_linha;
+            }
+
+           
+
         }    
     }
     
 }
 
-$tabela = $sul;
+$tabela .= "<tr><td colspan = '7'>Região Norte </td></tr>$norte";
+$tabela .= "<tr><td colspan = '9'>Região Nordeste </td></tr>$nordeste";
+$tabela .= "<tr><td colspan = '3'>Região Centro Oeste </td></tr>$centroOeste";
+$tabela .= "<tr><td colspan = '4'>Região sudeste </td></tr>$sudeste";
+$tabela .= "<tr><td colspan = '3'>Região sul </td></tr>$sul";
 
 $titulo = "Dados Populacionais dos Estados brasileiros.";
 
