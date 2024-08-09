@@ -114,17 +114,17 @@ echo "<hr> A data é: " . dataInvertida('02/08/2024', '/');
 
 
 // ATIVIDADE 06
-converteTemperatura($temperatura, $tipoDeConversao) {
-/*
-  C = F - 32 / 1,8
-  F = 1,8 * C + 32
-*/
-$celsius = ($fahrenheit - 32) / 1.8;
+// converteTemperatura($temperatura, $tipoDeConversao) {
+// /*
+//   C = F - 32 / 1,8
+//   F = 1,8 * C + 32
+// */
+// // $celsius = ($fahrenheit - 32) / 1.8;
 
 
 
-};
+// };
 
-echo "<hr> A temperatura é: " . converteTemperatura(30, 'celsius');
+// echo "<hr> A temperatura é: " . converteTemperatura(30, 'celsius');
 
 ?>
