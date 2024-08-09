@@ -24,7 +24,7 @@ echo gettype(PI);
 echo "<br>";
 
 // concatenação
-echo "A variável \$nome é do tipo ".gettype($nome)." e o seu valor é {$nome}.";
+echo "A variável \$nome é do tipo " . gettype($nome) . " e o seu valor é {$nome}.";
 // a barra invertida ignora a instrução a seguir
 
 $tipo = gettype($nome);

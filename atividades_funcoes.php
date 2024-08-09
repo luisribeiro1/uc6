@@ -109,22 +109,44 @@ function dataInvertida($data, $tipoConversao){
   }
   return $data;
 }
-
-echo "<hr> A data é: " . dataInvertida('02/08/2024', '/');
+echo "A data é: " . dataInvertida('02/08/2024', '-');
+echo '<hr/><br>';
 
 
 // ATIVIDADE 06
+<<<<<<< HEAD
 // converteTemperatura($temperatura, $tipoDeConversao) {
 // /*
 //   C = F - 32 / 1,8
 //   F = 1,8 * C + 32
 // */
 // // $celsius = ($fahrenheit - 32) / 1.8;
+=======
+function converteTemperatura($temperatura,$tipoDeConversao) {
+    
+  if ($tipoDeConversao == 'celsius'){
+    $temperaturaConvertida = ($temperatura - 32) / 1.8;
+    echo "A temperatura em Celsius é: $temperaturaConvertida";
+  } elseif ($tipoDeConversao == 'fahrenheit') {
+    $temperaturaConvertida = (1.8 * $temperatura) + 32;
+    echo "A temperatura em Fahrenheit é: $temperaturaConvertida";
+  } else {
+    echo 'Escala de temperatura não reconhecida.';
+  };
+  return $temperaturaConvertida;
+}
+converteTemperatura(32, 'fahrenheit');
+echo '<hr/><br>';
+>>>>>>> 6966888d830a56c286daf25fb25db52b60adb983
 
 
+// TIVIDADE 07
 
+<<<<<<< HEAD
 // };
 
 // echo "<hr> A temperatura é: " . converteTemperatura(30, 'celsius');
+=======
+>>>>>>> 6966888d830a56c286daf25fb25db52b60adb983
 
 ?>
