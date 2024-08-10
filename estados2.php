@@ -80,9 +80,8 @@ while(!feof($dados)){
             $corFundo = '';
         }
 
-        # Separando por região
-    $tabela_linha="
-    <tr>
+        $tabela_linha="
+        <tr>
         <td class='text-center $corFundo'>$uf</td>
         <td class='text-center $corFundo'>$nomeEstado</td>
         <td class='text-end $corFundo'>$homens_f</td>
@@ -92,10 +91,11 @@ while(!feof($dados)){
         <td class='text-end $corFundo'>$pop2010_f</td>
         <td class='text-center $corFundo'>$capital</td>
         <td class='text-center $corFundo'>$quantidade_cidades</td>
-    </tr>    
-    ";
-    
-
+        </tr>    
+        ";
+        
+        
+        # Separando por região
     if($uf == 'SP' or $uf== 'RJ' or $uf== 'MG' or $uf== 'ES'){
         $sudeste.=$tabela_linha;
     }if($uf == 'PR' or $uf== 'SC' or $uf== 'RS'){
