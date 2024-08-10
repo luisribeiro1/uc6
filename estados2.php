@@ -114,7 +114,7 @@ while(!feof($dados)) {
                 $sudeste.= $tabela_linha;
             }
 
-           
+            
 
         }    
     }
