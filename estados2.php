@@ -61,17 +61,17 @@ $tabela.="
 }else{
 
     
-    # formatar com 0 casas decimais, nenhum separador decimal e o pontocomo separador de milhar
+    # formatar com 0 casas decimais, nenhum separador decimal e o ponto como separador de milhar
     $homens_f = number_format($homens,0,"",".");
     $mulheres_f = number_format($mulheres,0,"",".");
     $rural_f = number_format($rural,0,"",".");
     $urbana_f = number_format($urbana,0,"",".");
     $pop2010_f = number_format($pop2010,0,"",".");
 
-if($quantidade_cidades > 299){
+if($quantidade_cidades > 300){
     $corfundo = "bg-primary-subtle";
 
-}elseif($quantidade_cidades < 99){
+}elseif($quantidade_cidades < 100){
     $corfundo = "bg-success-subtle";
 }else{
     $corfundo = "bg-white";
@@ -120,7 +120,7 @@ $tabela .="<tr class='text-center'><td colspan='9'><h2>Região Norte</h2></td></
 $tabela .="<tr class='text-center'><td colspan='9'><h2>Região Centro-Oeste</h2></td></tr>$centro";
 
 
-$titulo = "Dados populacionais dos estaos brasileiros";
+$titulo = "Dados populacionais dos estados brasileiros";
 
 # localizar a marcação [[titulo]] e substituir a variavel 
 # titulo.
