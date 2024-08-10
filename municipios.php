@@ -83,5 +83,5 @@
         $tamplate = str_replace("[[titulo]]",$titulo,$tamplate);
         $tamplate = str_replace("[[tabela]]",$tabela,$tamplate);
 
-        echo $tamplate;
+        echo $tamplate; #
 
