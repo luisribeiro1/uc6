@@ -47,15 +47,15 @@ while (!feof($dados)) {
     if ($tabela == "") {
       $tabela .= "
             <tr>
-                <th>$uf</th>
-                <th>$nomeEstado</th>
-                <th class='text-end'>$homens</th>
-                <th class='text-end'>$mulheres</th>
-                <th class='text-end'>$rural</th>
-                <th class='text-end'>$urbana</th>
-                <th class='text-end'>$pop2010</th>
-                <th class='text-center'>$capital</th>
-                <th class='text-center'>$quantidade_cidades</th>
+                <th class='bg-info-subtle'>$uf</th>
+                <th class='bg-info-subtle'>$nomeEstado</th>
+                <th class='text-center bg-info-subtle'>$homens</th>
+                <th class='text-center bg-info-subtle'>$mulheres</th>
+                <th class='text-center bg-info-subtle'>$rural</th>
+                <th class='text-center bg-info-subtle'>$urbana</th>
+                <th class='text-center bg-info-subtle'>$pop2010</th>
+                <th class='text-center bg-info-subtle'>$capital</th>
+                <th class='text-center bg-info-subtle'>$quantidade_cidades</th>
             </tr>
             ";
     } else {
@@ -67,18 +67,7 @@ while (!feof($dados)) {
         $pop2010_f = number_format($pop2010, 0, "", ".");
         $quantidade_cidades_f = number_format($pop2010, 0, "", ".");
 
-      // $centroOeste = "";
-      // ['MT', 'MS', 'GO', 'DF'];
-      // $norte = "";
-      // ['AM', 'PA', 'AC', 'RO', 'RR', 'AP', 'TO'];
-      // $nordeste = "";
-      // ['MA', 'PI', 'CE', 'RN', 'PB', 'PE', 'AL', 'SE', 'BA'];
-      // $sul = "";
-      // ['PR', 'SC', 'RS'];
-      // $sudeste = "";
-      // ['MG', 'SP', 'RJ', 'ES'];
-      // $centroOeste_f = implode(", ",$centroOeste);
-
+      $corFundo = "";
       if ($quantidade_cidades > 300 ) {
         $corFundo = 'bg-primary-subtle';
 
@@ -90,14 +79,14 @@ while (!feof($dados)) {
         }
 
         $tabela_linha = "
-                <tr>
+                <tr class='border'>
                     <td class='$corFundo'>$uf</td>
                     <td class='$corFundo'>$nomeEstado</td>
-                    <td class='text-end $corFundo'>$homens_f</td>
-                    <td class='text-end $corFundo'>$mulheres_f</td>
-                    <td class='text-end $corFundo'>$rural_f</td>
-                    <td class='text-end $corFundo'>$urbana_f</td>
-                    <td class='text-end $corFundo'>$pop2010_f</td>
+                    <td class='text-center $corFundo'>$homens_f</td>
+                    <td class='text-center $corFundo'>$mulheres_f</td>
+                    <td class='text-center $corFundo'>$rural_f</td>
+                    <td class='text-center $corFundo'>$urbana_f</td>
+                    <td class='text-center $corFundo'>$pop2010_f</td>
                     <td class='text-center $corFundo'>$capital</td>
                     <td class='text-center $corFundo'>$quantidade_cidades</td>
                 </tr>
@@ -122,11 +111,11 @@ while (!feof($dados)) {
     } 
   }
 
-  $tabela.= "<tr><td colspan'9' class='bg-info-subtle'><b>Região Centro Oeste</b></tr></td>$centroOeste";
-  $tabela.= "<tr><td colspan'9' class='bg-info-subtle'><b>Região Centro Oeste</b></tr></td>$norte";
-  $tabela.= "<tr><td colspan'9' class='bg-info-subtle'><b>Região Centro Oeste</b></tr></td>$nordeste";
-  $tabela.= "<tr><td colspan'9' class='bg-info-subtle'><b>Região Centro Oeste</b></tr></td>$sul";
-  $tabela.= "<tr><td colspan'9' class='bg-info-subtle'><b>Região Centro Oeste</b></tr></td>$sudeste";
+  $tabela.= "<tr><td colspan'9' class='text-center'><b>Região Centro Oeste</b></tr></td>$centroOeste";
+  $tabela.= "<tr><td colspan'9' class='text-center'><b>Região Centro Oeste</b></tr></td>$norte";
+  $tabela.= "<tr><td colspan'9' class='text-center'><b>Região Centro Oeste</b></tr></td>$nordeste";
+  $tabela.= "<tr><td colspan'9' class='text-center'><b>Região Centro Oeste</b></tr></td>$sul";
+  $tabela.= "<tr><td colspan'9' class='text-center'><b>Região Centro Oeste</b></tr></td>$sudeste";
 
 
 $titulo = "Dados populacionais dos estados brasileiros";
