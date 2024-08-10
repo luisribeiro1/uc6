@@ -92,8 +92,8 @@ while(!feof($dados)) {
                 $centroOeste.=$tabela_linha;
             }elseif ($uf == 'SP' or $uf == 'RJ' or $uf =='ES' or $uf == 'MG') {
                 $sudeste.=$tabela_linha;
-            }
-            
+            } 
+
             if ($uf == 'RS' or $uf == 'PR' or $uf == 'SC') {
                 $sul.=$tabela_linha;
             }
