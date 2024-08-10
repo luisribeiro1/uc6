@@ -7,6 +7,8 @@
     $dados = fopen($arquivo,"r");
 
     $tabela = "";
+    
+    $ufAnterior = "";
 
     while(!feof($dados)){
         $linha = fgets($dados);
@@ -49,6 +51,11 @@
                 $pop2010_f = number_format($pop2010,0,"",".");
                 $pop2021_f = number_format($pop2021,0,"",".");
 
+                if($ufAnterior != $uf){
+                    $tabela.="<tr><td colspan='9'>Região de $uf</td></tr>";
+                }
+            
+
                 $tabela.="
                 <tr>
                     <td>$codigo</td>
@@ -62,6 +69,8 @@
                     <td>$pop2021_f</td>
                 </tr>
                 ";
+
+                $ufAnterior = $uf;
 
             }
 
