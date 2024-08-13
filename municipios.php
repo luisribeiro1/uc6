@@ -1,5 +1,9 @@
 <?php
 
+# pegar a UF na url. $_GET captura parâmetros na url
+$ufParametro = $_GET["uf"];
+// echo $ufParametro;
+
 # Carregaro arquivo do tamplate
 $tamplate = file_get_contents("tamplate.html", "r");
 
@@ -60,33 +64,36 @@ while (!feof($dados)) {
         $rural_f = number_format($rural, 0, "", ".");
         $pop2010_f = number_format($pop2010, 0, "", ".");
         $pop2021_f = number_format($pop2021, 0, "", ".");
+
         
-        
-        if ($ufAnterior <> $uf) {
-          $tabela.= "<tr><td class='ps-5 table-active' colspan='9'><b>Estado de $uf</b></td></tr>";
+        if($uf == $ufParametro) {
+          
+          if ($ufAnterior <> $uf) {
+            $tabela.= "<tr><td class='ps-5 table-active' colspan='9'><b>Estado de $uf</b></td></tr>";
+          }
+
+          $tabela .= "
+          <tr>
+          <td class='text-center'>$codigo</td>
+          <td class='text-center'>$uf</td>
+          <td class='text-center'>$municipio</td>
+          <td class='text-center'>$homens_f</td>
+          <td class='text-center'>$mulheres_f</td>
+          <td class='text-center'>$rural_f</td>
+          <td class='text-center'>$urbana_f</td>
+          <td class='text-center'>$pop2010_f</td>
+          <td class='text-center'>$pop2021_f</td>
+          </tr>
+          ";
+          
+          $ufAnterior = $uf;
         }
-
-        $tabela .= "
-                <tr>
-                    <td class='text-center'>$codigo</td>
-                    <td class='text-center'>$uf</td>
-                    <td class='text-center'>$municipio</td>
-                    <td class='text-center'>$homens_f</td>
-                    <td class='text-center'>$mulheres_f</td>
-                    <td class='text-center'>$rural_f</td>
-                    <td class='text-center'>$urbana_f</td>
-                    <td class='text-center'>$pop2010_f</td>
-                    <td class='text-center'>$pop2021_f</td>
-                </tr>
-                ";
-
-              $ufAnterior = $uf;
       }
     }
   }
 }
 
-$titulo = "Dados populacionais dos estados brasileiros";
+$titulo = "Dados populacionais dos municípios brasileiros";
 
 # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
 $tamplate = str_replace("[[titulo]]", $titulo, $tamplate);
@@ -94,12 +101,11 @@ $tamplate = str_replace("[[tabela]]", $tabela, $tamplate);
 
 echo $tamplate;
 
+// $a = array("a" => "apple", "b" => "banana");
+// $b = array("a" => "pear", "b" => "strawberry", "c" => "cherry");
 
-$a = array("a" => "apple", "b" => "banana");
-$b = array("a" => "pear", "b" => "strawberry", "c" => "cherry");
-
-$a += $b; // Union of $a += $b is $a and $b
-echo "Union of \$a += \$b: \n <br>";
-echo "<pre>";
-var_dump($a);
-echo "</pre>";
+// $a += $b; // Union of $a += $b is $a and $b
+// echo "Union of \$a += \$b: \n <br>";
+// echo "<pre>";
+// var_dump($a);
+// echo "</pre>";

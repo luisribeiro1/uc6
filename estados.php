@@ -62,11 +62,12 @@ while (!feof($dados)) {
         $pop2010_f = number_format($pop2010, 0, "", ".");
 
         # Mostará os estados com a população de mulheres maior que homens
+        
 
         $tabela .= "
                 <tr>
                     <td>$uf</td>
-                    <td>$nomeEstado</td>
+                    <td><a href='municipios.php?uf=$uf'>$nomeEstado</a></td>
                     <td class='text-end'>$homens_f</td>
                     <td class='text-end'>$mulheres_f</td>
                     <td class='text-end'>$rural_f</td>
