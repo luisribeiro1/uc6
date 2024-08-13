@@ -1,5 +1,6 @@
 <?php
 
+
 # Carregar o arquivo do template
 $template = file_get_contents("template.html", "r");
 # Caminho do arquivo
@@ -93,7 +94,7 @@ while(!feof($dados)){
     $tabelaLinha="
     <tr>
         <td class='$corFundo'>$uf</td>
-        <td class='$corFundo'>$nomeEstado</td>
+        <td class='$corFundo'><a href='municipios.php?uf=$uf'>$nomeEstado</a></td>
         <td class='text-end $corFundo'>$homens_f</td>
         <td class='text-end $corFundo'>$mulheres_f</td>
         <td class='text-end $corFundo'>$urbana_f</td>

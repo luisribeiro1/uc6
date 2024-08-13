@@ -1,12 +1,18 @@
 <?php
 
+
+
+# Pegar o paramêtro uf na url. $_GET captura parametros na URL
+$ufParametro = $_GET["uf"];
+// echo $ufParametro;
+
 $template = file_get_contents("template.html", "r");
 
 $arquivo = "arquivos_de_dados/municipios.csv";
 $dados = fopen($arquivo, "r");
 
 $tabela = "";
-
+$ufAnterior = "";
 
 while(!feof($dados)){
     $linhas = fgets($dados);
@@ -44,7 +50,7 @@ while(!feof($dados)){
            ";
         }else{
 
-
+            
             $pop2000_f = number_format($pop2000, 0 ,",", ".");
             $homens_f = number_format($homens, 0, ",", ".");
             $mulheres_f = number_format($mulheres, 0, ",", ".");
@@ -53,6 +59,14 @@ while(!feof($dados)){
             $pop2010_f = number_format($pop2010, 0, ",", ".");
             $pop2021_f = number_format($pop2021, 0, ",", ".");
 
+            
+            if($ufParametro == $uf){
+                
+                if($ufAnterior != $uf){
+                    $tabela.="<tr><td colspan='9'> Estado de $uf</td></tr>";
+                }
+
+            
             $tabela.="
            <tr>
                 <td>$codigo<td>
@@ -67,6 +81,9 @@ while(!feof($dados)){
                 <td>$pop2021_f<td>
            <tr>
            ";
+        }
+
+        $ufAnterior = $uf;
         }
     }
 }
