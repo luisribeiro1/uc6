@@ -1,89 +1,90 @@
 <?php
 
-# carregar o arquivo do template 
+# carregar o arquivo do template
 $template = file_get_contents("template.html");
 
 # Caminho do arquivo
 $arquivo = "arquivos_de_dados/estados.csv";
 
-# função do PHP para leitura de arquivos externos
-# "r" indica que o arquivo sera aberto apenas para leitura
+# Função do PHP para leitura de arquivos externos
+# r indica que o arquivoserá aberto apenas para leitura
 $dados = fopen($arquivo, "r");
 
 $tabela = "";
 
-
-# percorrer dados, ate que enconte o final o aquirvo
+# Percorrer dados até encontrar o final do arquivo
 while(!feof($dados)){
-
-    # pegar a linha atual
-    $linha = fgets($dados);
-
-    #dividir a linha atual e gerar um array,usando ";" como referência
-    $colunas = explode(";",$linha);
-
-    # Verificar se existe todos os itens no array
-    if(count($colunas) >= 13){
-
-    $uf = $colunas[0];
-    $nomeEstado = $colunas[1];
-    $pop2000 = $colunas[2];
-    $homens = $colunas[3];
-    $mulheres = $colunas[4];
-    $urbana = $colunas[5];
-    $rural = $colunas[6];
-    $pop2010 = $colunas[7];
-    $pop2021 = $colunas[8];
-    $quantidade = $colunas[9];
-    $capital = $colunas[10];
-    $gentilico = $colunas[11];
-    $area = $colunas[12];
-
-
-
-if($tabela==""){
-    $tabela.="
-    <tr>
-        <th>$uf</th>
-        <th>$nomeEstado</th>
-        <th class = 'text-end' >$homens</th>
-        <th class = 'text-end' >$mulheres</th>
-        <th class = 'text-end' >$urbana</th>
-        <th class = 'text-end' >$rural</th>
-        <th class = 'text-end' >$pop2010</th>
-        <th>$capital</th>
-    </tr>
-    ";
-
-}else{
-
-    $homens_f = number_format($homens,0,"",".");
-    $mulheres_f = number_format($mulheres,0,"",".");
-    $rural_f = number_format($rural,0,"",".");
-    $urbana_f = number_format($urbana,0,"",".");
-    $pop2010_f = number_format($urbana,0,"",".");
     
-    if($mulheres > $homens){
+    # Pegar a linha atual
+    $linha = fgets($dados);
+    
+    # dividir a linha atual e gerar um array, usando o ";" como referência.
+    $coluna = explode(";", $linha);
+    
+    # verificar se existem todos os itens no array
+    if(count($coluna) >= 13){
+
+    $uf = $coluna[0];
+    $nomeEstado = $coluna[1];
+    $pop2000 = $coluna[2];
+    $homens = $coluna[3];
+    $mulheres = $coluna[4];
+    $urbana = $coluna[5];
+    $rural = $coluna[6];
+    $pop2010 = $coluna[7];
+    $pop2021 = $coluna[8];
+    $quantidade_cidades = $coluna[9];
+    $capital = $coluna[10];
+    $gentilico = $coluna[11];
+    $area = $coluna[12];
+
+    
+    if($tabela==""){
     $tabela.="
     <tr>
-        <td>$uf</td>
-        <td>$nomeEstado</td>
-        <td class = 'text-end'>$homens_f</td>
-        <td class = 'text-end'>$mulheres_f</td>
-        <td class = 'text-end'>$urbana_f</td>
-        <td class = 'text-end'>$rural_f</td>
-        <td class = 'text-end'>$pop2010_f</td>
-        <td>$capital</td>
+        <th class='text-center'>$uf</th>
+        <th class='text-center'>$nomeEstado</th>
+        <th class='text-center'>$homens</th>
+        <th class='text-center'>$mulheres</th>
+        <th class='text-center'>$urbana</th>
+        <th class='text-center'>$rural</th>
+        <th class='text-center'>$pop2010</th>
+        <th class='text-center'>$capital</th>
     </tr>
     ";
-}
-}
-}
+    }else{
+
+        # Formatar com 0 casas decimais, nenhum separador decimal e o ponto como separador de milhar
+        $homens_f = number_format($homens,0,"",".");
+        $mulheres_f = number_format($mulheres,0,"",".");
+        $urbana_f = number_format($urbana,0,"",".");
+        $rural_f = number_format($rural,0,"",".");
+        $pop2010_f = number_format($pop2010,0,"",".");
+
+        # Mostrar os estados que tem a população de mulheres > homens
+        if($mulheres > $homens) {
+        $tabela.="
+    <tr>
+        <td class='text-center'>$uf</td>
+        <td class='text-center'><a href='municipios.php?uf=$uf'>$nomeEstado</td>
+        <td class='text-center'>$homens_f</td>
+        <td class='text-center'>$mulheres_f</td>
+        <td class='text-center'>$urbana_f</td>
+        <td class='text-center'>$rural_f</td>
+        <td class='text-center'>$pop2010_f</td>
+        <td class='text-center'>$capital</td>
+    </tr>
+    ";
+    }
+    }
+    }
+
 }
 
-$titulo = "Dados populacionais dos estados brasileiros";
+$titulo = "Dados populacionais dos Estados Brasileiros";
 
-# localizar a marcação do [[titulo]] e substituir pelo o conteudo da variavel titulo
+# Localizar a marcação "[[titulo]]" e substituir pelo conteúdo da variável $titulo
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
+
 echo $template;
