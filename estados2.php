@@ -74,7 +74,7 @@ while(!feof($dados)) {
             $tabela_linha ="
             <tr>
                 <td class = '$corFundo'>$uf</td>
-                <td class = '$corFundo'>$nomeEstado</td>
+                <td class = '$corFundo'><a href='municipios.php?uf=$uf'>$nomeEstado</td>
                 <td class = '$corFundo'>$cidades</td>
                 <td class = '$corFundo'>$capital</td>
                 <td class = '$corFundo'>$gentilico</td>
@@ -88,7 +88,7 @@ while(!feof($dados)) {
                 $norte.=$tabela_linha;
             }elseif ($uf == 'MA' or $uf == 'PI' or $uf == 'CE' or $uf == 'RN' or $uf == 'PE' or $uf == 'PB' or $uf == 'SE' or $uf == 'AL' or $uf == 'BA') {
                 $nordeste.=$tabela_linha;
-            }elseif ($uf == 'MT' or $uf == 'MS' or $uf == 'GO') {
+            }elseif ($uf == 'MT' or $uf == 'MS' or $uf == 'GO' or $uf == 'DF') {
                 $centroOeste.=$tabela_linha;
             }elseif ($uf == 'SP' or $uf == 'RJ' or $uf =='ES' or $uf == 'MG') {
                 $sudeste.=$tabela_linha;

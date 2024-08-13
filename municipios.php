@@ -1,5 +1,9 @@
 <?php
 
+# Pegar o parâmetro uf na url. $_GET captura parâmetros na url
+$ufParametro = $_GET["uf"];
+# echo $ufParametro;
+
 $template = file_get_contents("template.html");
 
 $arquivo = "arquivos_de_dados/municipios.csv";
@@ -50,6 +54,7 @@ while(!feof($dados)) {
             $urbana_f = number_format($urbana,0,"",".");
 
             //if ($mulheres > $homens)
+            if ($uf == $ufParametro)
             
             $tabela.="
             <tr>
