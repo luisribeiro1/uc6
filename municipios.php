@@ -1,5 +1,10 @@
 <?php
 
+# Pegar o parâmetro uf na url. $_GET captura parâmetros na url.
+
+$ufParametro = $_GET["uf"];
+
+
 $template = file_get_contents("template.html");
 
 $arquivo = "arquivos_de_dados/municipios.csv";
@@ -52,9 +57,11 @@ while(!feof($dados)){
         $pop2010_f = number_format($pop2010,0,"",".");
         $pop2021_f = number_format($pop2021,0,"",".");
 
-       if($ufAnterior != $uf){
-            $tabela.="<tr><td colspan='9'><b>Municipios de $uf</b></td></tr>";
+        if($ufParametro==$uf){
+            if($ufAnterior != $uf){
+                $tabela.="<tr><td colspan='9'><b>Municipios de $uf</b></td></tr>";
         }
+
     
         $tabela.="
         <tr>
@@ -70,12 +77,16 @@ while(!feof($dados)){
         </tr>
         ";
         
-        $ufAnterior = $uf;    
+        $ufAnterior = $uf;  
+
+    }
+      
     
     }
 
     }
 }
+
 
 
 $titulo = "Dados populacionais dos Municipios Brasileiros";

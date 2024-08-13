@@ -80,7 +80,7 @@ while(!feof($dados)){
     $tabela_linha = "
     <tr>
         <td class='$corFundo'>$uf</td>
-        <td class='$corFundo'>$nomeEstado</td>
+        <td class='$corFundo text-dark'><a href='municipios.php?uf=$uf'>$nomeEstado</a></td>
         <td class='text-end $corFundo'>$homens_f</td>
         <td class='text-end $corFundo'>$mulheres_f</td>
         <td class='text-end $corFundo'>$rural_f</td>
