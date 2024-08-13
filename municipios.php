@@ -1,5 +1,8 @@
 <?php
 
+# Pegar o parâmetro uf na URL
+$ufParametro = $_GET["uf"];         // $_GET captura parâmetros na url
+
 # Carregar o arquivo do template
 $template = file_get_contents("template.html");
 
@@ -35,6 +38,7 @@ while(!feof($dados)) {
         $pop2010 = $coluna[8];
         $pop2021 = $coluna[9];
 
+        
     
         if($tabela==""){
     
@@ -62,9 +66,14 @@ while(!feof($dados)) {
             $pop2000_f = number_format($pop2000,0,"",".");
             $pop2021_f = number_format($pop2021,0,"",".");
             
-            if($ufAnterior != $uf){
+            if($ufParametro==$uf){
+
+                if($ufAnterior != $uf){
                 $tabela.= "<tr><td colspan='9'>Estado de $uf</td></tr>";
             }
+        
+            
+    
             
             $tabela.="
             <tr class = ''>
@@ -81,7 +90,9 @@ while(!feof($dados)) {
             ";
             
             $ufAnterior = $uf;
+
         }
+}
 }
 }
 
