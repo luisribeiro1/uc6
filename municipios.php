@@ -1,5 +1,10 @@
 <?php
 
+    # Pegar o parâmetro uf na url; $_GET aptura o paramentros na url
+    $ufParametro = $_GET["uf"];
+
+
+
     $tamplate = file_get_contents("tamplate.html","r");
 
     $arquivo = "arquivos_de_dados/municipios.csv";
@@ -34,14 +39,15 @@
                     <th>$codigo</th>
                     <th>$uf</th>
                     <th>$estado</th>
-                    <th>$homens</th>
-                    <th>$mulheres</th>
-                    <th>$urbana</th>
-                    <th>$rural</th>
-                    <th>$pop2010</th>
-                    <th>$pop2021</th>
+                    <th class='text-end'>$homens</th>
+                    <th class='text-end'>$mulheres</th>
+                    <th class='text-end'>$urbana</th>
+                    <th class='text-end'>$rural</th>
+                    <th class='text-end'>$pop2010</th>
+                    <th class='text-end'>$pop2021</th>
                 </tr>
                 ";
+
             }else{
 
                 $homens_f = number_format($homens,0,"",".");
@@ -50,32 +56,31 @@
                 $rural_f = number_format($rural,0,"",".");
                 $pop2010_f = number_format($pop2010,0,"",".");
                 $pop2021_f = number_format($pop2021,0,"",".");
-
-                if($ufAnterior != $uf){
-                    $tabela.="<tr><td colspan='9'>Região de $uf</td></tr>";
-                }
-            
-
+                
+                if($ufParametro == $uf){
+                    if($ufAnterior != $uf){
+                        $tabela.="<tr><td colspan='9' class='text-center'><b>Região de $uf</b></td></tr>";
+                    }
+                
                 $tabela.="
                 <tr>
-                    <td>$codigo</td>
-                    <td>$uf</td>
-                    <td>$estado</td>
-                    <td>$homens_f</td>
-                    <td>$mulheres_f</td>
-                    <td>$urbana_f</td>
-                    <td>$rural_f</td>
-                    <td>$pop2010_f</td>
-                    <td>$pop2021_f</td>
+                <td>$codigo</td>
+                <td>$uf</td>
+                <td>$estado</td>
+                <td class='text-end'>$homens_f</td>
+                <td class='text-end'>$mulheres_f</td>
+                <td class='text-end'>$urbana_f</td>
+                <td class='text-end'>$rural_f</td>
+                <td class='text-end'>$pop2010_f</td>
+                <td class='text-end'>$pop2021_f</td>
                 </tr>
                 ";
-
+                
                 $ufAnterior = $uf;
-
+                
             }
-
-        }
-
+            }
+            }
     }
 
         $titulo = "Dados Populacionais dos Municipios brasileiros:";
