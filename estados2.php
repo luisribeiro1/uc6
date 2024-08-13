@@ -84,7 +84,7 @@ $tabela_linha="
 <tr>
 
     <td class= '$corfundo'>$uf</td>
-    <td class='$corfundo'>$nomeEstado</td>
+    <td class='$corfundo'><a href='municipio.php?uf=$uf'>$nomeEstado</a></td>
     <td class='text-end $corfundo'>$homens_f</td>
     <td class='text-end $corfundo'>$mulheres_f</td>
     <td class='text-end $corfundo'>$urbana_f</td>
