@@ -71,52 +71,14 @@ while(!feof($dados)){
        
 
         if($quantidade_cidades > 300 ){
-            $cordofundo = ("bg-primary-subtle");
-          $tabela.="
-          <tr>
-          <td class='$cordofundo'>$uf</td>
-          <td class='$cordofundo'>$nomeEstado</td>
-          <td class='text-end $cordofundo'>$homens_f</td>
-          <td class='text-end $cordofundo'>$mulheres_f</td>
-          <td class='text-end $cordofundo'>$urbana_f</td>
-          <td class='text-end $cordofundo'>$rural_f</td>
-          <td class='text-end $cordofundo'>$pop2010_f</td>
-          <td class='text-end $cordofundo'>$quantidade_cidades</td>
-          <td>$capital</td>
-          </tr>
-        ";
+            $cordofundo = "bg-primary-subtle";
+        
         }
         elseif($quantidade_cidades < 100 ){
-            $cordofundo = ("bg-success-subtle");
-          $tabela.="
-          <tr>
-          <td class='$cordofundo'>$uf</td>
-          <td class='$cordofundo'>$nomeEstado</td>
-          <td class='text-end $cordofundo'>$homens_f</td>
-          <td class='text-end $cordofundo'>$mulheres_f</td>
-          <td class='text-end $cordofundo'>$urbana_f</td>
-          <td class='text-end $cordofundo'>$rural_f</td>
-          <td class='text-end $cordofundo'>$pop2010_f</td>
-          <td class='text-end $cordofundo'>$quantidade_cidades</td>
-          <td>$capital</td>
-          </tr>
-        ";
+           $cordofundo = "bg-success-subtle";
         }
         else{
-            $cordofundo = "bg-warning";
-            $tabela.="
-          <tr>
-          <td class='$cordofundo'>$uf</td>
-          <td class='$cordofundo'>$nomeEstado</td>
-          <td class='text-end $cordofundo'>$homens_f</td>
-          <td class='text-end $cordofundo'>$mulheres_f</td>
-          <td class='text-end $cordofundo'>$urbana_f</td>
-          <td class='text-end $cordofundo'>$rural_f</td>
-          <td class='text-end $cordofundo'>$pop2010_f</td>
-          <td class='text-end $cordofundo'>$quantidade_cidades</td>
-          <td>$capital</td>
-          </tr>
-        ";
+         $cordofundo = "bg-white";
         }
         
         
@@ -130,7 +92,7 @@ while(!feof($dados)){
         <tr>
         
         <td class='$cordofundo'>$uf</td>
-        <td class='$cordofundo'>$nomeEstado</td>
+        <td class='$cordofundo'><a href='municipios.php?uf=$uf'</a>$nomeEstado</td>
         <td class='text-end $cordofundo'>$homens_f</td>
         <td class='text-end $cordofundo'>$mulheres_f</td>
         <td class='text-end $cordofundo'>$urbana_f</td>
@@ -151,7 +113,13 @@ while(!feof($dados)){
               $sul.= $tabela_linha;
         }
         elseif($uf== 'AC' or $uf=='AM' or $uf=='AP' or $uf=='PA' or $uf== 'RO' or $uf=='RR' or $uf=='TO'){
+              $norte.= $tabela_linha;
+        }
+        elseif($uf== 'AL' or $uf=='BA' or $uf=='CE' or $uf=='MA' or $uf== 'PB' or $uf=='PN' or $uf=='PI' or $uf== 'RN' or $uf=='SE'){
               $nordeste.= $tabela_linha;
+        }
+        elseif($uf== 'GO' or $uf=='MT' or $uf=='MS' or $uf=='DF'){
+              $centro_oeste.= $tabela_linha;
         }
         
         
@@ -169,7 +137,9 @@ while(!feof($dados)){
 
 $tabela .= "<tr><td colspan='9'>Regiao Sudeste</td></tr>$sudeste";
 $tabela .= "<tr><td colspan='9'>Regiao Sul</td></tr>$sul";
-$tabela .= "<tr><td colspan='9'>Regiao nordeste</td></tr>$nordeste";
+$tabela .= "<tr><td colspan='9'>Regiao Norte</td></tr>$norte";
+$tabela .= "<tr><td colspan='9'>Regiao Nordeste</td></tr>$nordeste";
+$tabela .= "<tr><td colspan='9'>Regiao Centro-oeste</td></tr>$centro_oeste";
 
    
     
