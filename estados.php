@@ -69,7 +69,7 @@ while(!feof($dados)){
     $tabela.="
     <tr>
         <td class='text-center'>$uf</td>
-        <td class='text-center'>$nomeEstado</td>
+        <td class='text-center'><a href ='municipios.php?uf=$uf'>$nomeEstado</td>
         <td class='text-end'>$homens_f</td>
         <td class='text-end'>$mulheres_f</td>
         <td class='text-end'>$urbana_f</td>
