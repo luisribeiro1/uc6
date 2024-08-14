@@ -1,5 +1,11 @@
 <?php
 
+
+# Pegar o parametro uf na url . $_GET captura parametros na url
+$ufParametro = $_GET["uf"];
+#echo $ufParametro; 
+
+
 # carregar o arquivo do template 
 $template = file_get_contents("template.html", "r");
 # Caminho do arquivo
@@ -67,6 +73,7 @@ $tabela.="
     $rural_f = number_format($rural,0,"",".");
     $urbana_f = number_format($urbana,0,"",".");
     $pop2010_f = number_format($pop2010,0,"",".");
+    $pop2021_f = number_format($pop2021,0,"",".");
 
 if($quantidade_cidades > 300){
     $corfundo = "bg-primary-subtle";
@@ -84,7 +91,7 @@ $tabela_linha="
 <tr>
 
     <td class= '$corfundo'>$uf</td>
-    <td class='$corfundo'>$nomeEstado</td>
+    <td class='$corfundo'><a heref='municipios'.php?uf=$nomeEstado</td>      
     <td class='text-end $corfundo'>$homens_f</td>
     <td class='text-end $corfundo'>$mulheres_f</td>
     <td class='text-end $corfundo'>$urbana_f</td>

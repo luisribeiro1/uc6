@@ -105,3 +105,5 @@ echo $template;
 
 
 
+#<td>$nomeEstado</td> ><a heref 'municipios.php?uf=>nomeEstado<a/>' 
+#<td>$nomeEstado</td> ><a heref 'municipios.php?uf&nome=>nomeEstado<a/>' 

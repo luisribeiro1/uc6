@@ -1,5 +1,9 @@
 <?php
 
+# Pegar o parametro uf na url . $_GET captura parametros na url
+$ufParametro = $_GET["uf"];
+echo $ufParametro; 
+
 
 
 # carregar o arquivo do template 
@@ -12,11 +16,13 @@ $arquivo = "arquivo_de_dados/municipios.csv";
 $dados = fopen($arquivo, "r");
 
 $tabela = "";
+$ufAnterior = "";
 
 
 
 
 #percorrer dados, até que encontre o final do arquivo
+# 'r'  indica que o arquivo será aberto apenas para leitura
 while(!feof($dados)){
 
     # pegar a linha atual
@@ -29,7 +35,7 @@ while(!feof($dados)){
     if(count($colunas) >= 10){
 
 
-    $cod = $colunas[0];
+    $codigo = $colunas[0];
     $Estado = $colunas[1];
     $uf = $colunas[2];
     $pop2000 = $colunas[3];
@@ -43,17 +49,17 @@ while(!feof($dados)){
 
     if($tabela==""){
 $tabela.="
-<tr>
-    <th>$cod</th>
+<tr class =''>
+    <th>$codigo</th>
     <th>$Estado</th>
     <th> $uf</th>
-    <th> $pop2000</th>
-    <th> $homens</th>
-    <th>$mulheres</th>
-    <th>$urbana</th>
-    <th>$rural</th>
-    <th>$pop2010</th>
-    <th>$pop2021</th>
+    <th class='text-end'> $pop2000</th>
+    <th class='text-end'> $homens</th>
+    <th class='text-end'>$mulheres</th>
+    <th class='text-end'>$urbana</th>
+    <th class='text-end'>$rural</th>
+    <th class='text-end'>$pop2010</th>
+    <th class='text-end'>$pop2021</th>
 </tr>";
 }else{
 
@@ -64,20 +70,30 @@ $tabela.="
     $rural_f = number_format($rural,0,"",".");
     $urbana_f = number_format($urbana,0,"",".");
     $pop2010_f = number_format($pop2010,0,"",".");
+    $pop2021_f = number_format($pop2021,0,"",".");
+
+    if($ufParametro==$uf){
+
+         if($ufAnterior ! = $uf){
+
+           $tabela.="<tr><td colspan='9'>Estado de $uf</td></tr>";
+    }   
+    
+    
 
     $tabela.="
-    <tr>
-        <td>$cod</td>
+    <tr class = ''>
+        <td>$codigo</td>
         <td>$Estado</td>
         <td> $uf</td>
-        <td> $pop2000</td>
-        <td> $homens</td>
-        <td>$mulheres</td>
-        <td>$pop2010</td>
-        <td>$urbana</td>
-        <td>$rural</td>
-        <td>$pop2010</td>
-        <td>$pop2021</td>
+        <td class='text-end'> $pop2000</td>
+        <td class='text-end'> $homens</td>
+        <td class='text-end'>$mulheres</td>
+        <td class='text-end'>$pop2010</td>
+        <td class='text-end'>$urbana</td>
+        <td class='text-end'>$rural</td>
+        <td class='text-end'>$pop2010</td>
+        <td class='text-end'>$pop2021</td>
     </tr>";
 
 }
