@@ -45,9 +45,13 @@ while(!feof($dados)){
     // $urbana_f = number_format($urbana,0,"",".");
     // $pop2010_f = number_format($pop2010,0,"",".");
 
+   
 
 
 
+if($uf == "UF" or $nomeEstado == "Estado"){
+$conteudo="";
+}else{
     $conteudo.="
       <div class='col-3 mb-3'>
 
@@ -67,6 +71,9 @@ while(!feof($dados)){
 
           </div>
     ";
+}
+
+
 
 
 }
