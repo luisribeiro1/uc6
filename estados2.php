@@ -42,7 +42,10 @@ while(!feof($dados)){
                 // $urbana_f = number_format($urbana,0,"",".");
                 // $rural_f = number_format($rural,0,"",".");
                 // $pop2010_f = number_format($pop2010,0,"",".");
-
+    
+    if($uf == "UF" or $nomeEstado ==   "Estado"){
+      continue;
+    }else{
     $conteudo.="
       <div class='col-3 mb-4'>
                         
@@ -61,11 +64,11 @@ while(!feof($dados)){
       </div>
       </div>";
 
-        
+    }
 }  
     
 }
-    $titulo = "Dados populacionais dos estados brasileiros";
+    $titulo = "Dados populacionais dos estados brasileiros:";
 
     # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
     $tamplate = str_replace("[[titulo]]",$titulo,$tamplate);
