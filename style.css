@@ -1,0 +1,11 @@
+.fs-7 {
+  font-size: 0.8rem;
+}
+.pink {
+  color: #ffa5c0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}

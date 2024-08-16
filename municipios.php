@@ -1,5 +1,7 @@
 <?php
 
+include('uteis.php');
+
 # pegar a UF na url. $_GET captura parâmetros na url
 $ufParametro = $_GET["uf"];
 // $pesquisa = $_POST["localizar"];
@@ -67,12 +69,12 @@ while (!feof($dados)) {
 
         if ($uf == $ufParametro) {
 
-          if ($ufAnterior <> $uf) {
-            $tabela .= "<tr><td class='ps-5 table-active' colspan='9'><b>Estado de $uf</b></td></tr>";
-            // header("location: municipios.php");
-          }
+          // if ($ufAnterior <> $uf) {
+          //   // $tabela .= "<tr><td class='ps-5 table-active' colspan='9'><b>Estado de $uf</b></td></tr>";
+          //   // header("location: municipios.php");
+          // }
 
-            $tabela .= "
+          $tabela .= "
                         <tr>
                         <td class='text-center'>$codigo</td>
                         <td class='text-center'>$uf</td>
@@ -86,18 +88,22 @@ while (!feof($dados)) {
                         </tr>
                         ";
 
-            $ufAnterior = $uf;
-          
+          $ufAnterior = $uf;
         }
       }
     }
   }
 }
 
-$titulo = "Dados populacionais dos municípios brasileiros";
+if($uf == "DF"){
+  $titulo = $nomeEstados[$ufParametro];
+} else {
+  $titulo = "Estado " . $nomeEstados[$ufParametro];
+}
 
 # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
 $tamplate = str_replace("[[titulo]]", $titulo, $tamplate);
 $tamplate = str_replace("[[tabela]]", $tabela, $tamplate);
+$tamplate = str_replace("[[conteudo]]", "", $tamplate);
 
 echo $tamplate;
