@@ -1,10 +1,10 @@
 <?php
- 
+
 
  # Pegar o parâmetro ufn a url
 $ufParametro = $_GET["uf"];
 
-
+include('uteis.php');
 $template = file_get_contents("template.html");
 
 $arquivo = "arquivos_de_dados/municipios.csv";
@@ -13,7 +13,6 @@ $dados = fopen($arquivo, "r");
 
 $tabela = "";
 $ufAnterior = "";
-
 
 
 while(!feof($dados)) {
@@ -69,9 +68,15 @@ while(!feof($dados)) {
 
             if($ufParametro==$uf){
                     if($ufAnterior !=$uf){
-                        $tabela.="<tr><td colspan='9'> Estado de $uf </td></tr>";
+                        $tabela.="<tr><td colspan='10' class='text-center'> Estado $retorno[$ufParametro] $nomesEstados[$ufParametro] </td></tr>";
                     }
 
+                    if($ufParametro == "DF" ){
+                        $tabela = "<tr><td colspan='10' class='text-center'>$nomesEstados[$ufParametro] </td></tr>";
+                    }else{
+                        
+                    
+                    }
                     $tabela.= "
                     <tr>
                         <td>$codigo</td>
@@ -91,11 +96,17 @@ while(!feof($dados)) {
             $ufAnterior = $uf;
         }
     }
+    
+
+
+}
+ if($ufParametro == "DF" ){
+    $titulo = $nomesEstados[$ufParametro];
+}else{
+    $titulo = "Estado  $retorno[$ufParametro] ". $nomesEstados[$ufParametro];
 
 }
 
-
-$titulo = "Dados dos Municipios";
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
 
