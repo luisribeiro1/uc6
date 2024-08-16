@@ -1,8 +1,8 @@
 <?php
-
+ 
+ include('uteis.php');
 # pegar o parametro  uf ba url. $_GET captura parâmetro na url
 $ufParametro = $_GET["uf"];
-echo $ufParametro;
 
 # Carregar o arquivo do template
 $template = file_get_contents("template.html");
@@ -97,7 +97,7 @@ while(!feof($dados)) {
 
 
 
-$titulo = "Dados Populacionais dos Municipios Brasileiros";
+$titulo = "Estados de " .$nomesEstados[$ufParametro];
 # Localizar a marcação "[[titulo]]" e substituir pelo conteúdo da variável $titulo
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
