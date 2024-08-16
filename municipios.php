@@ -1,9 +1,11 @@
 <?php
 
-include('uteis.php');
 
-# pegar o parametro  uf ba url. $_GET captura parâmetro na url
-$ufParametro = $_GET["uf"];
+# Pegar o parâmetro uf na URL
+$ufParametro = $_GET["uf"];         // $_GET captura parâmetros na url
+
+include('uteis.php');
+include('infoEstado.php');
 
 # Carregar o arquivo do template
 $template = file_get_contents("template.html");
@@ -12,7 +14,7 @@ $template = file_get_contents("template.html");
 $arquivo = "Arquivo_de_dados/municipios.csv";
 
 # Função do PHP para leitura de arquivos externos
-# r indica que o arquivo será aberto apenas para leitura
+# r indica que o arquivoserá aberto apenas para leitura
 $dados = fopen($arquivo, "r");
 
 $tabela = "";
@@ -20,13 +22,12 @@ $ufAnterior = "";
 
 while(!feof($dados)) {
     
-  
     # Pegar a linha atual
     $linha = fgets($dados);
-    
+
     # dividir a linha atual e gerar um array, usando o ";" como referência.
     $coluna = explode(";", $linha);
-    
+
     # verificar se existem todos os itens no array
     if(count($coluna) >= 10){
         
@@ -40,8 +41,9 @@ while(!feof($dados)) {
         $rural = $coluna[7];
         $pop2010 = $coluna[8];
         $pop2021 = $coluna[9];
+
         
-        
+    
         if($tabela==""){
     
             $tabela.="
@@ -55,8 +57,9 @@ while(!feof($dados)) {
             <th class='text-center'>$rural</th>
             <th class='text-center'>$pop2000</th>
             <th class='text-center'>$pop2021</th>
-            </tr>";
-            
+            </tr>
+            ";
+
         }else{
             
             # Formatar com 0 casas decimais, nenhum separador decimal e o ponto como separador de milhar
@@ -68,36 +71,41 @@ while(!feof($dados)) {
             $pop2021_f = number_format($pop2021,0,"",".");
             
             if($ufParametro==$uf){
-                
-                if($ufAnterior != $uf){
-                    $tabela.= "<tr><td colspan='9'>Estado de $uf</td></tr>";
-                }
 
                 
-                $tabela.="
-                <tr class = ''>
-                <td class='text-center'>$codigo</td>
-                <td class='text-center'>$uf</td>
-                <td class='text-center'>$municipio</td>
-                <td class='text-center'>$homens_f</td>
-                <td class='text-center'>$mulheres_f</td>
-                <td class='text-center'>$urbana_f</td>
-                <td class='text-center'>$rural_f</td>
-                <td class='text-center'>$pop2000_f</td>
-                <td class='text-center'>$pop2021_f</td>
-                </tr>";
-                
-                $ufAnterior = $uf;
-                
-            }
+            
+        
+            
+    
+            
+            $tabela.="
+            <tr class = ''>
+            <td class='text-center'>$codigo</td>
+            <td class='text-center'>$uf</td>
+            <td class='text-center'>$municipio</td>
+            <td class='text-center'>$homens_f</td>
+            <td class='text-center'>$mulheres_f</td>
+            <td class='text-center'>$urbana_f</td>
+            <td class='text-center'>$rural_f</td>
+            <td class='text-center'>$pop2000_f</td>
+            <td class='text-center'>$pop2021_f</td>
+            </tr>
+            ";
+            
+            $ufAnterior = $uf;
+
         }
-    }
+}
+}
 }
 
 
-$titulo = "Estado de ".$nomesEstados[$ufParametro];
+
+
+$titulo = $principio . $nomesEstados[$ufParametro];
 # Localizar a marcação "[[titulo]]" e substituir pelo conteúdo da variável $titulo
 $template = str_replace("[[titulo]]", $titulo, $template);
-$template = str_replace("[[tabela]]", $tabela, $template);  
+$template = str_replace("[[tabela]]", $tabela, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
 
 echo $template;

@@ -10,6 +10,7 @@ $arquivo = "Arquivo_de_dados/Estado.csv";
 # r indica que o arquivoserá aberto apenas para leitura
 $dados = fopen($arquivo, "r");
 
+// vai ignorar a linha 0 do array
 fgets($dados);
 
 $conteudo = "";
@@ -48,7 +49,7 @@ while(!feof($dados)){
     // $urbana_f = number_format($urbana,0,"",".");
     // $rural_f = number_format($rural,0,"",".");
     // $pop2010_f = number_format($pop2010,0,"",".");
-
+   
     $conteudo.="
         <div class='col-3 mb-4'>
                 <div class='card'>
@@ -64,7 +65,7 @@ while(!feof($dados)){
                             <i class='bi bi-building-fill text-primary'></i>$urbana
                         </span>
                         <br>
-                        <a href = 'municipios.php?uf=$uf'> Ver Municipios</a>
+                        <a href='municipios.php?uf=$uf'>Ver municípios</a>
                     </div>
                 </div>
         </div>
