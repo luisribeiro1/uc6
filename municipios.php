@@ -96,5 +96,5 @@
         $tamplate = str_replace("[[tabela]]",$tabela,$tamplate);
         $tamplate = str_replace("[[conteudo]]","",$tamplate);
 
-        echo $tamplate;
+        echo $tamplate; #
 

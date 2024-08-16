@@ -76,4 +76,4 @@ while(!feof($dados)){
     $tamplate = str_replace("[[conteudo]]",$conteudo,$tamplate);
     $tamplate = str_replace("[[tabela]]","",$tamplate);
     
-    echo $tamplate;
+    echo $tamplate; #

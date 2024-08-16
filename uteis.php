@@ -1,5 +1,5 @@
 <?php
-# Array associativo com a lista de estados
+# Array associativo com a lista de estados.
 $nomesEstados = [
     "AC" => "Acre",
     "AL" => "Alagoas",
