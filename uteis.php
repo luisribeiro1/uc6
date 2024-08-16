@@ -1,0 +1,61 @@
+<?php
+
+# Array associativa com a lista de estados
+$nomeEstados = [
+     "AC" => "Acre",
+     "AL" => "Alagoas",
+     "AP" => "Amapa",
+     "AM" => "Acre",
+     "BA" => "Bahia",
+     "CE" => "Ceara",
+     "DF" => "Distrido Federal",
+     "ES" => "Espirito Santo",
+     "GO" => "Goias",
+     "MA" => "Maranhão",
+     "MT" => "Mato Grosso",
+     "MS" => "Mato Grosso do Sul",
+     "MG" => "Minas Gerais",
+     "PA" => "Para",
+     "PB" => "Paraiba",
+     "PR" => "Parana",
+     "PE" => "Pernambuco",
+     "RJ" => "Rio de Janeiro",
+     "RN" => "Rio Grande do Norte",
+     "RS" => "Rio Grande do Sul",
+     "RO" => "Rondonia",
+     "RR" => "Roraima",
+     "SC" => "Santa Catarina",
+     "SP" => "São Paulo",
+     "SE" => "Sergipe",
+     "TO" => "Tocantins"
+    
+];
+
+$certo = [
+    "AC" => "Do",
+    "AL" => "De",
+    "AP" => "Do",
+    "AM" => "Do",
+    "BA" => "Da",
+    "CE" => "Do",
+    "DF" => "Do",
+    "ES" => "Do",
+    "GO" => "De",
+    "MA" => "Do",
+    "MT" => "Do",
+    "MS" => "Do",
+    "MG" => "De",
+    "PA" => "Do",
+    "PB" => "Da",
+    "PR" => "Do",
+    "PE" => "De",
+    "RJ" => "Do",
+    "RN" => "Do",
+    "RS" => "Do",
+    "RO" => "De",
+    "RR" => "De",
+    "SC" => "De",
+    "SP" => "De",
+    "SE" => "De",
+    "TO" => "De"
+];

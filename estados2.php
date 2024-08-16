@@ -9,13 +9,7 @@ $arquivo = "arquivos_de_dados/estados.csv";
 # Função do PHP para leitura de arquivos externos
 $dados = fopen($arquivo, "r");
 
-$tabela = "";
-$sudeste = "";
-$norte = "";
-$sul = "";
-$nordeste = "";
-$centro_oeste = "";
-
+$conteudo = "";
 # Percorrer dados, até que encontre o final do arquivo
 while(!feof($dados)){
 
@@ -44,111 +38,87 @@ while(!feof($dados)){
      $gentilico = $colunas[11];
      $area = $colunas[12];
 
-     if($tabela== ""){
-        $tabela.="
-        <tr>
-        <th>$uf</th>
-        <th>$nomeEstado</th>
-        <th class='text-end'>$homens</th>
-        <th class='text-end'>$mulheres</th>
-        <th class='text-end'>$urbana</th>
-        <th class='text-end'>$rural</th>
-        <th class='text-end'>$pop2010</th>
-        <th class='text-end'>$quantidade_cidades</th>
-        <th>$capital</th>
-        </tr>
-      ";
-     }else{
        
 
-        # Formatar com 0 casas decimais, nenhum separador decimal e o ponto como separador de milhar
+      //   # Formatar com 0 casas decimais, nenhum separador decimal e o ponto como separador de milhar
 
-        $homens_f = number_format($homens,0,"",".");
-        $mulheres_f = number_format($mulheres,0,"",".");
-        $rural_f = number_format($rural,0,"",".");
-        $urbana_f = number_format($urbana,0,"",".");
-        $pop2010_f = number_format($pop2010,0,"",".");
+      //   $homens_f = number_format($homens,0,"",".");
+      //   $mulheres_f = number_format($mulheres,0,"",".");
+      //   $rural_f = number_format($rural,0,"",".");
+      //   $urbana_f = number_format($urbana,0,"",".");
+      //   $pop2010_f = number_format($pop2010,0,"",".");
        
 
-        if($quantidade_cidades > 300 ){
-            $cordofundo = "bg-primary-subtle";
+      
+     
+        $conteudo.=" <div class='col-4 mb-4'>
+
+                <div class='card'>
+                    <div class='card-body text-center'>
+                        <span class='fw-bold'>$uf - $nomeEstado</span><br>
+                        <span class='fs-7'>
+                            <i class='bi bi-person-standing text-info'></i>41,85%
+                            <i class='bi bi-person-standing-dress text-danger'></i>51,12%
+                        </span>
+                        <br>
+                        <span class='fs-7'>
+                            <i class='bi bi-tree-fill text-success'></i>13,25%
+                            <i class='bi bi-building-fill text-primary'></i>86,69%
+                        </span>
+                        <br>
+                        <a href= 'municipios.php?uf=$uf'>ver municipios</a>
+                    </div>
+                </div>
+            </div>";
+      
         
-        }
-        elseif($quantidade_cidades < 100 ){
-           $cordofundo = "bg-success-subtle";
-        }
-        else{
-         $cordofundo = "bg-white";
-        }
+       //$tabela_linha="
+       // <tr>
         
+       // <td class='$cordofundo'>$uf</td>
+       // <td class='$cordofundo'><a href='municipios.php?uf=$uf'</a>$nomeEstado</td>
+       // <td class='text-end $cordofundo'>$homens_f</td>
+       // <td class='text-end $cordofundo'>$mulheres_f</td>
+       // <td class='text-end $cordofundo'>$urbana_f</td>
+       // <td class='text-end $cordofundo'>$rural_f</td>
+       // <td class='text-end $cordofundo'>$pop2010_f</td>
+       // <td class='text-end $cordofundo'>$quantidade_cidades</td>
+       // <td>$capital</td>
         
-        
-        
-        
-        
-        
-        
-       $tabela_linha="
-        <tr>
-        
-        <td class='$cordofundo'>$uf</td>
-        <td class='$cordofundo'><a href='municipios.php?uf=$uf'</a>$nomeEstado</td>
-        <td class='text-end $cordofundo'>$homens_f</td>
-        <td class='text-end $cordofundo'>$mulheres_f</td>
-        <td class='text-end $cordofundo'>$urbana_f</td>
-        <td class='text-end $cordofundo'>$rural_f</td>
-        <td class='text-end $cordofundo'>$pop2010_f</td>
-        <td class='text-end $cordofundo'>$quantidade_cidades</td>
-        <td>$capital</td>
-        
-        </tr>";
+       // </tr>";
          
        
         
         
-        if($uf== 'SP' or $uf=='MG' or $uf=='RJ' or $uf=='ES'){
-              $sudeste.= $tabela_linha;
-        }
-        elseif($uf== 'RS' or $uf=='PR' or $uf=='SC'){
-              $sul.= $tabela_linha;
-        }
-        elseif($uf== 'AC' or $uf=='AM' or $uf=='AP' or $uf=='PA' or $uf== 'RO' or $uf=='RR' or $uf=='TO'){
-              $norte.= $tabela_linha;
-        }
-        elseif($uf== 'AL' or $uf=='BA' or $uf=='CE' or $uf=='MA' or $uf== 'PB' or $uf=='PN' or $uf=='PI' or $uf== 'RN' or $uf=='SE'){
-              $nordeste.= $tabela_linha;
-        }
-        elseif($uf== 'GO' or $uf=='MT' or $uf=='MS' or $uf=='DF'){
-              $centro_oeste.= $tabela_linha;
-        }
+      //   if($uf== 'SP' or $uf=='MG' or $uf=='RJ' or $uf=='ES'){
+      //         $sudeste.= $tabela_linha;
+      //   }
+      //   elseif($uf== 'RS' or $uf=='PR' or $uf=='SC'){
+      //         $sul.= $tabela_linha;
+      //   }
+      //   elseif($uf== 'AC' or $uf=='AM' or $uf=='AP' or $uf=='PA' or $uf== 'RO' or $uf=='RR' or $uf=='TO'){
+      //         $norte.= $tabela_linha;
+      //   }
+      //   elseif($uf== 'AL' or $uf=='BA' or $uf=='CE' or $uf=='MA' or $uf== 'PB' or $uf=='PN' or $uf=='PI' or $uf== 'RN' or $uf=='SE'){
+      //         $nordeste.= $tabela_linha;
+      //   }
+      //   elseif($uf== 'GO' or $uf=='MT' or $uf=='MS' or $uf=='DF'){
+      //         $centro_oeste.= $tabela_linha;
+      //   }
         
         
 
        
 }
 
-
-
      }
-
-     
-
-     }
-
-$tabela .= "<tr><td colspan='9'>Regiao Sudeste</td></tr>$sudeste";
-$tabela .= "<tr><td colspan='9'>Regiao Sul</td></tr>$sul";
-$tabela .= "<tr><td colspan='9'>Regiao Norte</td></tr>$norte";
-$tabela .= "<tr><td colspan='9'>Regiao Nordeste</td></tr>$nordeste";
-$tabela .= "<tr><td colspan='9'>Regiao Centro-oeste</td></tr>$centro_oeste";
-
-   
-    
 
 $titulo = "Dados populacionais dos estados brasileiros";
 
 # localizar a marcaçao [[titulo]] e substituir pelo conteudo da variavel
 #titulo
 $template = str_replace("[[titulo]]", $titulo, $template);
-$template = str_replace("[[tabela]]", $tabela, $template);
+$template = str_replace("[[conteudo]]", $conteudo, $template);
+$template = str_replace("[[tabela]]","", $template);
 
 echo $template;
