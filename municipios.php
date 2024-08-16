@@ -1,7 +1,8 @@
 <?php
-
 # Pegar o parâmentro uf na url, e $_GET captura parâmentros na url
 $ufParametro = $_GET["uf"];
+
+include('uteis.php');
 
 # Carregar o arquivo do template
 $template = file_get_contents("template.html");
@@ -61,11 +62,6 @@ while(!feof($dados)){
             $pop2000_f = number_format($pop2000,0,"",".");
 
             if($ufParametro==$uf){
-                
-            if($ufAnterior != $uf){
-                $tabela.= "<tr><td colspan='9'>Estado de $uf</td></tr>";
-            }
-            
             
             $tabela.="
             <tr>
@@ -82,14 +78,14 @@ while(!feof($dados)){
             ";
 
 
-            $ufAnterior = $uf;
+            $ufAnterior= $uf;
         }
     }
 }
 }
 
 
-$titulo = "Municípios do Brasil";
+$titulo = $principio . $nomesEstados[$ufParametro];
 # Localizar a marcação [[titulo]] e substituir pelo conteúdo da variável titulo
 $template = str_replace("[[titulo]]",$titulo, $template);
 $template = str_replace("[[tabela]]",$tabela, $template);

@@ -10,6 +10,10 @@ $arquivo = "arquivos_de_dados/estados.csv";
 # "r" indica que o arquivo será aberto apenas para leitura
 $dados = fopen($arquivo, "r");
 
+
+// Vai ignorar a linha 0 do array(cabeçalho)
+fgets($dados);
+
 $conteudo = "";
 
 # Percoreer dados té que encontre o final do arquivo
@@ -58,6 +62,8 @@ while(!feof($dados)){
                             <i class='bi bi-tree-fill text-success'></i> $rural
                             <i class='bi bi-building-fill text-primary'></i> $urbana
                         </span>
+                        <br>
+                        <a href='municipios.php?uf=$uf'>Ver municipios</a>
                     </div>
                 </div>
             </div>";
@@ -72,6 +78,7 @@ $titulo = "Dados populacionais dos estados brasileiros";
 # Localizar a marcação [[titulo]] e substituir pelo conteúdo da variável titulo
 $template = str_replace("[[titulo]]",$titulo, $template);
 $template = str_replace("[[conteudo]]",$conteudo, $template);
+$template = str_replace("[[tabela]]","",$template);
 
 echo $template;
 
