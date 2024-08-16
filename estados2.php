@@ -60,6 +60,7 @@ while(!feof($dados)){
               <i class='bi bi-tree-fill text-success'></i> 13,25%
               <i class='bi bi-building-fill text-primary'></i> 86,69%
             </span><br>
+            <a href='municipios.php?uf=$uf' class='btn btn-secondary'>Ver municípios</a>
         </div>
       </div>
       </div>";
@@ -73,5 +74,6 @@ while(!feof($dados)){
     # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
     $tamplate = str_replace("[[titulo]]",$titulo,$tamplate);
     $tamplate = str_replace("[[conteudo]]",$conteudo,$tamplate);
+    $tamplate = str_replace("[[tabela]]","",$tamplate);
     
     echo $tamplate;
