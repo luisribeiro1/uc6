@@ -1,5 +1,7 @@
 <?php
 
+include('uteis.php');
+
 # Pegar o parâmetro uf na url. $_GET captura parâmetros na url.
 
 $ufParametro = $_GET["uf"];
@@ -36,7 +38,7 @@ while(!feof($dados)){
 
     if($tabela== ""){
         $tabela.="
-        <tr>
+        <tr class='table table-primary'>
         <th>$codigo</th>
         <th>$uf</th>
         <th>$municipios</th>
@@ -57,10 +59,10 @@ while(!feof($dados)){
         $pop2010_f = number_format($pop2010,0,"",".");
         $pop2021_f = number_format($pop2021,0,"",".");
 
-        if($ufParametro==$uf){
-            if($ufAnterior != $uf){
-                $tabela.="<tr><td colspan='9'><b>Municipios de $uf</b></td></tr>";
-        }
+         if($ufParametro==$uf){
+        //     if($ufAnterior != $uf){
+        //         $tabela.="<tr><td colspan='9'><b>Municipios de $uf</b></td></tr>";
+        // }
 
     
         $tabela.="
@@ -89,7 +91,13 @@ while(!feof($dados)){
 
 
 
-$titulo = "Dados populacionais dos Municipios Brasileiros";
+
+if($ufParametro == "DF"){
+     $titulo = "Distrito da República";
+}else{
+    $titulo = "Estado".$reposicao[$ufParametro].$nomesEstados[$ufParametro];
+};
+
 
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
