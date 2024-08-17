@@ -56,10 +56,18 @@ while(!feof($dados)){
     // $urbana_f = number_format($urbana,0,"",".");
     // $pop2010_f = number_format($pop2010,0,"",".");
     // $pop2021_f = number_format($pop2021,0,"",".");
+    
+    if($uf== "uf" or $nomeEstado == "Estado"){
+        $conteudo="";
 
-    $conteudo.="  <div class='col-4 mb-4'>
-    <div class='card'>
+    }
+     else{
+        $conteudo.="";
+     }
 
+
+    $conteudo.=" <div class='col-4 mb-4'>
+    
         <div class='card'>
             <div class='card-body text-center'>
                 <sapan class= 'fw-bold'>$uf- $nomeEstado</sapan><br>
@@ -72,10 +80,12 @@ while(!feof($dados)){
                     <i class='bi bi-tree-fill text-success'></i> $rural
                     <i class='bi bi-building-fill text-primary'></i> $urbana
                 </span>
+                <br>
+                <a href= 'municipios.php?uf=$uf'>ver municipios</a>
             </div>
         </div>
     </div>
-</div> 
+
 ";
 
 
@@ -88,12 +98,13 @@ while(!feof($dados)){
  
 
 
-$titulo = "Dados populacionais dos estaos brasileiros";
+$titulo = "SAO PAULO ";
 
 # localizar a marcação [[titulo]] e substituir a variavel 
 # titulo.
 $template = str_replace("[[titulo]]", $titulo, $template);
-$template = str_replace("[[conteudo]]", $conteudo, $template);
+$template = str_replace("[[conteudo]]",$conteudo, $template);
+$template = str_replace("[[tabela]]","", $template);
 
 echo $template;
 

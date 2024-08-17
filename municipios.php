@@ -1,9 +1,12 @@
 <?php
 
+
 # Pegar o parametro uf na url . $_GET captura parametros na url
 $ufParametro = $_GET["uf"];
-echo $ufParametro; 
+#echo $ufParametro; 
 
+include('uteis.php');
+include('info_estados.php');
 
 
 # carregar o arquivo do template 
@@ -23,7 +26,7 @@ $ufAnterior = "";
 
 #percorrer dados, até que encontre o final do arquivo
 # 'r'  indica que o arquivo será aberto apenas para leitura
-while(!feof($dados)){
+while(!feof($dados))
 
     # pegar a linha atual
     $linha = fgets($dados);
@@ -32,7 +35,7 @@ while(!feof($dados)){
     $colunas = explode(";", $linha);
 
     # verificar se existe todos os items do array
-    if(count($colunas) >= 10){
+    if(count($colunas) >=10){
 
 
     $codigo = $colunas[0];
@@ -61,6 +64,7 @@ $tabela.="
     <th class='text-end'>$pop2010</th>
     <th class='text-end'>$pop2021</th>
 </tr>";
+
 }else{
 
     
@@ -74,10 +78,10 @@ $tabela.="
 
     if($ufParametro==$uf){
 
-         if($ufAnterior ! = $uf){
+         if($ufAnterior = $uf){
 
            $tabela.="<tr><td colspan='9'>Estado de $uf</td></tr>";
-    }   
+    }   }
     
     
 
@@ -98,17 +102,17 @@ $tabela.="
 
 }
     }
-}
 
-$titulo = "Municipios do Brasil";
+ #$basetitulo = "Estado" .$nomeEstados[$ufParametro];
+
+ $titulo = "Estados ".$dedoda.$nomesEstados[$ufParametro];
 
 # localizar a marcaçao [[titulo]] e substituir pelo conteudo da variavel
 #titulo
 $template = str_replace("[[titulo]]", $titulo, $template);
+$template = str_replace("[[tabela]]", $info_estados, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
+
 
 echo $template;
 
-# if(($ufAnterior != $uf){
-# $tabela  
-# }
