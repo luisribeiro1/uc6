@@ -6,6 +6,8 @@ include('uteis.php');
 $ufParametro = $_GET["uf"];
 // $pesquisa = $_POST["localizar"];
 
+include('info_estado.php');
+
 # Carregaro arquivo do tamplate
 $tamplate = file_get_contents("tamplate.html", "r");
 
@@ -87,7 +89,6 @@ while (!feof($dados)) {
                         <td class='text-center'>$pop2021_f</td>
                         </tr>
                         ";
-
           $ufAnterior = $uf;
         }
       }
@@ -95,7 +96,7 @@ while (!feof($dados)) {
   }
 }
 
-if($uf == "DF"){
+if ($ufParametro == "DF") {
   $titulo = $nomeEstados[$ufParametro];
 } else {
   $titulo = "Estado " . $nomeEstados[$ufParametro];
@@ -103,7 +104,7 @@ if($uf == "DF"){
 
 # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
 $tamplate = str_replace("[[titulo]]", $titulo, $tamplate);
+$tamplate = str_replace("[[conteudo]]", $info_estado, $tamplate);
 $tamplate = str_replace("[[tabela]]", $tabela, $tamplate);
-$tamplate = str_replace("[[conteudo]]", "", $tamplate);
 
 echo $tamplate;

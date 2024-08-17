@@ -82,6 +82,7 @@ $titulo = "Dados populacionais dos estados brasileiros";
 
 # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
 $tamplate = str_replace("[[titulo]]", $titulo, $tamplate);
+
 $tamplate = str_replace("[[conteudo]]", $conteudo, $tamplate);
 $tamplate = str_replace("[[tabela]]","", $tamplate);
 
