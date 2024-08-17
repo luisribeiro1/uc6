@@ -4,7 +4,10 @@
  # Pegar o parâmetro ufn a url
 $ufParametro = $_GET["uf"];
 
+
 include('uteis.php');
+include('info_estado.php');
+
 $template = file_get_contents("template.html");
 
 $arquivo = "arquivos_de_dados/municipios.csv";
@@ -72,7 +75,7 @@ while(!feof($dados)) {
                     }
 
                     if($ufParametro == "DF" ){
-                        $tabela = "<tr><td colspan='10' class='text-center'>$nomesEstados[$ufParametro] </td></tr>";
+                        $tabela = "<tr><td colspan='10' class='text-center'> $nomesEstados[$ufParametro] </td></tr>";
                     }else{
                         
                     
@@ -108,6 +111,7 @@ while(!feof($dados)) {
 }
 
 $template = str_replace("[[titulo]]", $titulo, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
 
 
