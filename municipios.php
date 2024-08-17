@@ -7,6 +7,7 @@
 $ufParametro = $_GET["uf"];
 
 include('uteis.php');
+include('info_estado.php');
 
 $template = file_get_contents("template.html", "r");
 
@@ -97,6 +98,7 @@ $titulo = "Estado  ".$certo[$ufParametro]." ". $nomeEstados[$ufParametro];
 
 }
 $template = str_replace("[[titulo]]", $titulo, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
 
 echo $template;
