@@ -55,7 +55,7 @@ continue;
     $conteudo.="
       <div class='col-3 mb-3'>
 
-            <div class='card'>
+            <div class='card border border-dark'>
                 <div class='card-body text-center'>
                     <span class='fw-bold'> $uf - $nomeEstado </span><br>
                     <span class='fs-7'>

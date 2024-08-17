@@ -6,6 +6,7 @@ include('uteis.php');
 
 $ufParametro = $_GET["uf"];
 
+include('info_estado.php');
 
 $template = file_get_contents("template.html");
 
@@ -89,9 +90,6 @@ while(!feof($dados)){
     }
 }
 
-
-
-
 if($ufParametro == "DF"){
      $titulo = "Distrito da República";
 }else{
@@ -100,6 +98,7 @@ if($ufParametro == "DF"){
 
 
 $template = str_replace("[[titulo]]", $titulo, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
 
 echo $template;
