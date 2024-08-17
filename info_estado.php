@@ -66,7 +66,7 @@ while(!feof($dados)){
             $info_estado .= "
             <div class='col-md-12 mb-4'>
                 <div class='progress mb-2' style='height: 30px' role='progressbar'>
-                    <div class='progress-bar bg-secondary' style='width: $porc_2000%'>$$pop2000 em 2000</div>
+                    <div class='progress-bar bg-secondary' style='width: $porc_2000%'>$pop2000 em 2000</div>
                 </div>
                 <div class='progress mb-2' style='height: 30px' role='progressbar'>
                     <div class='progress-bar bg-secondary' style='width: $porc_2010%'>$pop2010 em 2010</div>
