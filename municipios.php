@@ -1,9 +1,11 @@
 <?php
 
+$ufParametro = $_GET["uf"];
 include('uteis.php');
+include('info_estado.php');
 
 # Pegar o paramêtro uf na url. $_GET captura parametros na URL
-$ufParametro = $_GET["uf"];
+
 
 // echo $ufParametro;
 
@@ -67,6 +69,7 @@ while(!feof($dados)){
                     $tabela.="<tr><td class='text-center' colspan='20'> Estados $correcao[$ufParametro] $nomesEstados[$ufParametro]</td></tr>";
                 }
                 
+                
 
             
             $tabela.="
@@ -103,4 +106,5 @@ if($ufParametro == "DF"){
 
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
 echo $template;
