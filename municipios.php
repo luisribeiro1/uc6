@@ -1,9 +1,9 @@
 <?php
 
     include('uteis.php');
-
     # Pegar o parâmetro uf na url; $_GET aptura o paramentros na url
     $ufParametro = $_GET["uf"];
+    include('info_estado.php');
 
 
 
@@ -93,8 +93,9 @@
         
 
         $tamplate = str_replace("[[titulo]]",$titulo,$tamplate);
+        $tamplate = str_replace("[[conteudo]]",$info_estado,$tamplate);
         $tamplate = str_replace("[[tabela]]",$tabela,$tamplate);
-        $tamplate = str_replace("[[conteudo]]","",$tamplate);
+        
 
         echo $tamplate; #
 

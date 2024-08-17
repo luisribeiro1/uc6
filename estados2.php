@@ -53,12 +53,12 @@ while(!feof($dados)){
         <div class='card-body text-center'>
             <span class='fw-bold'>$uf - $nomeEstado</span><br>
             <span class='fs-7'>
-              <i class='bi bi-person-standing text-info'></i> 49,85%
-              <i class='bi bi-person-standing-dress text-danger'></i> 51,12%
+              <i class='bi bi-person-standing text-info'></i> $homens
+              <i class='bi bi-person-standing-dress text-danger'></i> $mulheres
             </span><br>
             <span class='fs-7'>
-              <i class='bi bi-tree-fill text-success'></i> 13,25%
-              <i class='bi bi-building-fill text-primary'></i> 86,69%
+              <i class='bi bi-tree-fill text-success'></i> $rural
+              <i class='bi bi-building-fill text-primary'></i> $urbana
             </span><br>
             <a href='municipios.php?uf=$uf' class='btn btn-secondary'>Ver municípios</a>
         </div>
