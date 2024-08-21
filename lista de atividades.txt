@@ -40,12 +40,57 @@ Depois retorne a data invertida
 
 Para esta atividade pode ser usada as funções nativas do PHP, explode() ou substr()
 
+
 Atividade 6:
 Crie a função converteTemperatura($temperatura,$tipoDeConversao).
 Recebe celsius e converte para fahrenheit
 Recebe fahrenheit e converte para celsius
 TipoDeconversao é um parâmetro que indicará a ordem acima
 Depois retorne a função convertida
+
+==============================
+
+Atividade 7:
+No arquivo estados.php, criar um filtro para mostrar os estados com população de mulheres maior que homens
+
+==============================
+
+Atividade 8:
+Duplicar o arquivo estados.php para estados2.php
+O estados2.php, tirar o filtro da atividade 7 e incluir as seguintes funcionalidades:
+- colocar a cor de fundo azul para os estados com mais de 300 municípios. Use a paleta bg-primary-subtle do Bootstrap
+- colocar a cor de fundo verde para os estados com menos de 100 municípios. Use a paleta bg-success-subtle do Bootstrap
+- Separar os estados por região.
+
+Região Sul:
+- Paraná
+- Santa Catarina
+- Rio Grande do Sul
+
+Sudeste:
+- MG
+- SP
+- RJ
+- ES
+
+E assim por diante
+
+===============================
+
+Atividade 9:
+A exemplo do arquivo estados.php, crie o arquivo municipios.php para ler os dados de municipios.csv
+e na sequência mostrar os dados na tabela. Use o mesmo template do HTML.
+
+===============================
+
+Atividade 10:
+A exemplo do arquivo municipios, criar o arquivo cidade.php que deverá conter as informações 
+de uma única cidade:
+- Gráfico com a evolução da população: 2000, 2010 e 2021 
+- Divisão da população em homens e mulheres, urbana e rural
+Deverá ser criado um link para a cidade na lista de municípios passando o código como parâmetro.
+
+
 
 
 

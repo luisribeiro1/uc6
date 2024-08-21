@@ -91,6 +91,7 @@ if(count($coluna) >= 13){
 
             
             $infoEstado .= "
+                <div class='col-md-12 mb-4'>
                 <div class='d-flex justify-content-between'>
                     <i class='bi bi-building-fill'></i>
                     <i class='bi bi-tree-fill'></i>
@@ -104,18 +105,19 @@ if(count($coluna) >= 13){
                     <div class='progress' role='progressbar' style='width: $percentualRural%'>
                         <div class='progress-bar bg-success'></div>
                     </div>
-
+                </div>
                 </div>
             ";
             $infoEstado .= "
+            <div class='col-md-12 mb-4'>
                 <div class='d-flex justify-content-between'>
-                    <i class='bi bi-person-standing text-info'></i>
-                    <i class='bi bi-person-standing-dress text-danger'></i>
+                    <i class='bi bi-person-standing'></i>
+                    <i class='bi bi-person-standing-dress'></i>
                 </div>
                 <div class='progress-stacked mb-4'>
   
                     <div class='progress' role='progressbar' style= 'width: $percentualHomens%'>
-                        <div class='progress-bar'></div>
+                        <div class='progress-bar bg-primary'></div>
                     </div>
   
                     <div class='progress' role='progressbar' style='width: $percentualMulheres%'>
@@ -123,6 +125,7 @@ if(count($coluna) >= 13){
                     </div>
 
                 </div>
+            </div>
             ";
     }
     

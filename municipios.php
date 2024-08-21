@@ -4,6 +4,7 @@
 # Pegar o parâmetro uf na URL
 $ufParametro = $_GET["uf"];         // $_GET captura parâmetros na url
 
+
 include('uteis.php');
 include('info_estado.php');
 
@@ -82,7 +83,7 @@ while(!feof($dados)) {
             <tr class = ''>
             <td class='text-center'>$codigo</td>
             <td class='text-center'>$uf</td>
-            <td class='text-center'>$municipio</td>
+            <td class='text-center'><a href = 'cidade.php?codigo=$codigo'>$municipio</td>
             <td class='text-center'>$homens_f</td>
             <td class='text-center'>$mulheres_f</td>
             <td class='text-center'>$urbana_f</td>
@@ -107,5 +108,6 @@ $titulo = $principio . $nomesEstados[$ufParametro];
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[conteudo]]", $infoEstado, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
+$template = str_replace("[[cidade]]", "",$template);
 
 echo $template;
