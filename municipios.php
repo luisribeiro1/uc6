@@ -78,7 +78,7 @@ while (!feof($dados)) {
 
           $tabela .= "
                         <tr>
-                        <td class='text-center'>$codigo</td>
+                        <th class='text-center'><a class='text-decoration-none' href='cidade.php?uf=$uf&codigo=$codigo'>$codigo</a></th>
                         <td class='text-center'>$uf</td>
                         <td class='text-center'>$municipio</td>
                         <td class='text-center'>$homens_f</td>
@@ -106,5 +106,6 @@ if ($ufParametro == "DF") {
 $tamplate = str_replace("[[titulo]]", $titulo, $tamplate);
 $tamplate = str_replace("[[conteudo]]", $info_estado, $tamplate);
 $tamplate = str_replace("[[tabela]]", $tabela, $tamplate);
+$tamplate = str_replace("[[conteudo-municipio]]", "", $tamplate);
 
 echo $tamplate;

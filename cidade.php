@@ -1,12 +1,23 @@
 <?php
 
+$cidadeParametro = $_GET["codigo"];
+$ufParametro = $_GET["uf"];
+
+include('uteis.php');
+include('info_estado.php');
+
+# Carregaro arquivo do tamplate
+$tamplate = file_get_contents("tamplate.html", "r");
+
 # Caminho do arquivo
-$arquivo = "arquivos_de_dados/estados.csv";
+$arquivo = "arquivos_de_dados/municipios.csv";
 
 # Função PHP para leitura de arquivos externos
-# r indica que o arquivo será aberto apenas para a leitura.
+# "r" indica que o arquivo será aberto apenas para a leitura.
 $dados = fopen($arquivo, "r");
 
+$cidade = "";
+$titulo = "";
 $info_estado = "";
 
 # Percorrer dados, até que encontre o final do arquivo
@@ -19,30 +30,23 @@ while (!feof($dados)) {
   $colunas = explode(";", $linha);
 
   # Verificar se existe todos os itens no array
-  if (count($colunas) >= 13) {
+  if (count($colunas) >= 10) {
 
-    $uf = $colunas[0];
-    $nomeEstado = $colunas[1];
-    $pop2000 = (int)$colunas[2];
-    $homens = $colunas[3];
-    $mulheres = $colunas[4];
-    $urbana = $colunas[5];
-    $rural = $colunas[6];
-    $pop2010 = $colunas[7];
-    $pop2021 = $colunas[8];
-    $quantidade_cidades = $colunas[9];
-    $capital = $colunas[10];
-    $gentilico = $colunas[11];
-    $area = $colunas[12];
+    $codigo = $colunas[0];
+    $uf = $colunas[1];
+    $municipio = $colunas[2];
+    $pop2000 = $colunas[3];
+    $homens = $colunas[4];
+    $mulheres = $colunas[5];
+    $urbana = $colunas[6];
+    $rural = $colunas[7];
+    $pop2010 = $colunas[8];
+    $pop2021 = $colunas[9];
 
-    if ($ufParametro == $uf && $uf != "UF") {
 
-      # Incluir as primeiras informações do estado
-      $info_estado = "<p>
-      <i>Gentílico:</i> <strong>$gentilico |</strong>
-      <i>Capital: </i><strong>$capital |</strong>
-      <i>Números de Municípios:</i> <strong>$quantidade_cidades </strong>
-      </p>";
+    if ($cidadeParametro == $codigo) {
+
+      $info_estado = "<p class='fs-3'>Estado: <strong>$uf | $nomeEstados[$uf]</strong></p>";
 
       # Definição dos percentuais da população
       $percentualBase = $pop2021 + ($pop2021 * 0.1);
@@ -114,6 +118,22 @@ while (!feof($dados)) {
         </div>
         </div>
       ";
+
+      if ($ufParametro == 'DF') {
+        $titulo = "Cidade de " . $municipio;
+      } else {
+        // $titulo = 'Estado ' . $nomeEstados[$ufParametro];
+        $titulo = 'Cidade - '. $municipio;
+
+      }
     }
   }
 }
+
+# Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
+$tamplate = str_replace("[[titulo]]", $titulo, $tamplate);
+$tamplate = str_replace("[[conteudo]]", $info_estado, $tamplate);
+$tamplate = str_replace("[[tabela]]", "", $tamplate);
+$tamplate = str_replace("[[conteudo-municipio]]", $cidade, $tamplate);
+
+echo $tamplate;

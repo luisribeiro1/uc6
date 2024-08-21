@@ -54,7 +54,7 @@ while (!feof($dados)) {
             <div class='col-3 mb-4'>
                     <div class='card shadow rounded style='transform'>
                         <div class='card-body text-center'>
-                            <spna class='fw-bold'>$uf - $nomeEstado</spna>
+                            <span class='fw-bold'>$uf - $nomeEstado</span>
                             <div></div>
                             <span class='fs-7'>
                                 <i class='bi bi-person-standing text-info'></i>&nbsp; $homens
