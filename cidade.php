@@ -10,7 +10,7 @@ $template = file_get_contents("template.html");
 $dados = fopen($arquivo,"r");
 
 $info_cidades = "";
-$ufParametro = $_GET["uf"];
+$CodigoParametro = $_GET["codigo"];
 $cidadePesquisa = $_GET["cidade"];
 
 $CidadeParametro = str_replace('%20',' ',$cidadePesquisa);
@@ -40,7 +40,7 @@ while(!feof($dados)){
         $pop2010 = (int)$colunas[8];
         $pop2021 = (int)$colunas[9];
 
-        if($CidadeParametro == $municipios && $ufParametro == $uf && $uf != 'uf'){
+        if($CidadeParametro == $municipios && $CodigoParametro == $codigo && $codigo != 'uf'){
 
             # Definir os percentuais da população:
             $percentualBase = $pop2021 + ($pop2021 * 10 / 100);
