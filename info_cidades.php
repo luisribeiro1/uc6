@@ -1,72 +1,53 @@
 <?php
 
-# Caminho do arquivo.
-$arquivo = "arquivos_de_dados/estados.csv";
+$arquivo = "arquivos_de_dados/municipios.csv";
 
-# Função do PHP para leitura de arquivos externos.
-# "r" indica que o arquivo será aberto apenas para leitura.
 $dados = fopen($arquivo, "r");
 
-$info_estado= "";
+$info_cidades="";
 
-# Percorrer dados, até que encontre o final do arquivo.
 while(!feof($dados)){
 
-    # Pegar a linha atual.
     $linha = fgets($dados);
 
-    # Dividir a linha atual e gerar um array, usando o ";" como referência.
-    $colunas = explode(";",$linha);
+    $colunas = explode(";", $linha);
 
-    # Verificar se existe todos os itens no array
-    if (count($colunas) >= 13){
+    if(count($colunas) >= 10){
 
-    $uf = $colunas[0];
-    $nomeEstado = $colunas[1];
-    $pop2000 = (int)$colunas[2];
-    $homens = $colunas[3];
-    $mulheres = $colunas[4];
-    $urbana= $colunas[5];
-    $rural = $colunas[6];
-    $pop2010 = (int)$colunas[7];
-    $pop2021 = (int)$colunas[8];
-    $quantidade_cidades = $colunas[9];
-    $capital = $colunas[10];
-    $gentilico = $colunas[11];
-    $area = $colunas[12];
-
+        $codigo = $colunas[0];
+        $uf = $colunas[1];
+        $municipios = $colunas[2];
+        $pop2000 = $colunas[3];
+        $homens = $colunas[4];
+        $mulheres = $colunas[5];
+        $urbana = $colunas[6];
+        $rural = $colunas[7];
+        $pop2010 = $colunas[8];
+        $pop2021 = $colunas[9];
     
-    if($ufParametro==$uf && $uf!='UF'){
+    if($cidadeParametro==$municipios && $ufParametro == $uf && $uf!='uf'){
 
-        # Incluir as primeiras informações do estado
-        $info_estado = "<p>
-        Gentílico: <strong>$gentilico</strong> | 
-        Capital: <strong>$capital</strong> | 
-        Número de municípios: <strong>$quantidade_cidades</strong> 
-        </p>";
-        
-        # Definir os percentuais da população.
+       
+
         $percentualBase = $pop2021 + ($pop2021 *10 / 100);
         $porc_2000 = $pop2000 / $percentualBase *100;
         $porc_2010 = $pop2010 / $percentualBase * 100;
         $porc_2021 = $pop2021 / $percentualBase * 100;
 
-        # Define os percentuais de população urbana e rural.
         $percentualUrbana = $urbana / $pop2010 * 100;
         $percentualRural = $rural / $pop2010 * 100;
 
-        # Define os percentuais de população urbana e rural.
         $percentualHomens = $homens / $pop2010 * 100;
         $percentualMulheres = $mulheres / $pop2010 * 100;
 
-        # Aplicar o separador de milhar para os valores inteiros.
-        # Nenhuma casa decimal, nenhum separador decimal, uso do ponto para separador de milhar.
         $pop2000 = number_format($pop2000,0,"",".");
         $pop2010 = number_format($pop2010,0,"",".");
         $pop2021 = number_format($pop2021,0,"",".");
 
-        $info_estado .= "
-    <div class='col-md-12 mb-4'>
+        $info_cidades = "<h1>
+        Cidade de: $municipios";
+
+        $info_cidades .=" <div class='col-md-12 mb-4'>
         <div class='progress mb-2' style='height: 30px' role='progressbar'>
             <div class='progress-bar bg-secondary' style='width: $porc_2000%'>$pop2000 em 2000</div>
         </div>
@@ -78,9 +59,7 @@ while(!feof($dados)){
         </div>
     </div>";
 
-
-
-    $info_estado.="
+    $info_cidades.="
     <div class='d-flex justify-content-between'>
         <i class='bi bi-building-fill text-primary'></i>
         <i class='bi bi-tree-fill text-success'></i>
@@ -98,7 +77,7 @@ while(!feof($dados)){
     </div>
     ";
 
-    $info_estado.="
+    $info_cidades.="
     <div class='d-flex justify-content-between'>
         <i class='bi bi-person-standing text-info'></i>
         <i class='bi bi-person-standing-dress text-danger'></i>
@@ -115,12 +94,7 @@ while(!feof($dados)){
     </div>
     </div>
     ";
-        }
+    }
 
     }
-    
 }
-
-
-
-
