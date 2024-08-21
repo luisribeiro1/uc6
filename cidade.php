@@ -1,12 +1,9 @@
 <?php
-# Caminho do arquivo
+
 $arquivo = "arquivos_de_dados/municipios.csv";
 include('uteis.php');
 $template = file_get_contents("template.html");
 
-
-# Função PHP para leirtura de arquivos externos
-# r indica que o arquivo será aberto apenas para a leitura.
 $dados = fopen($arquivo,"r");
 
 $info_cidades = "";
@@ -21,12 +18,11 @@ $CidadeParametro = str_replace('%20',' ',$cidadePesquisa);
 
 while(!feof($dados)){
 
-    # Pegar a linha atual
+   
     $linha = fgets($dados);
-    # Dividir a linha atual e gerer um array, usando o ; como referência
+   
     $colunas = explode(";",$linha);
 
-    # Verificar se existe todos os itens no array
     if(count($colunas) >= 10){
 
         $codigo = $colunas[0];
@@ -48,20 +44,18 @@ while(!feof($dados)){
             $porc_2010 = $pop2010 / $percentualBase * 100;
             $porc_2021 = $pop2021 / $percentualBase * 100;
 
-            # Definie os percentuais de população urbana e rural
             $percentualUrbana = $urbana / $pop2010 * 100;
             $percentualRural = $rural / $pop2010 * 100;
 
-            # Percentual de Homens e Mulheres
             $percentualHomens = $homens / $pop2010 * 100;
             $percentualMulheres = $mulheres / $pop2010 * 100;
 
-            # Formatação dos valores.
+           
             $pop2000 = number_format($pop2000,0,"",".");
             $pop2010 = number_format($pop2010,0,"",".");
             $pop2021 = number_format($pop2021,0,"",".");
             
-            // echo "$percentualBase | $porc_2000 | $porc_2010 | $porc_2021";
+           
 
             $info_cidades .= "<h3 class='text-center mb-4'>
                 Estado: <b>$uf - $nomesEstados[$uf]</b> 
