@@ -76,7 +76,7 @@ while(!feof($dados)){
            <tr>
                 <td>$codigo<td>
                 <td>$uf<td>
-                <td>$estado<td>
+                <td><a href='cidades.php?codigo=$codigo'</a>$estado<td>
                 <td>$pop2000_f<td>
                 <td>$homens_f<td>
                 <td>$mulheres_f<td>

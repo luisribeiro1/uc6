@@ -93,7 +93,7 @@ while(!feof($dados)){
             <i class='bi bi-building-fill'></i>
             <i class='bi bi-tree-fill'></i> 
         </div>
-    <div class='progress-stacked mb-4'>
+    <div class='progress-stacked mb-4 bg-primary-subtle'>
         <div class='progress' role='progressbar' style='width: $percentualUrbana%'>
             <div class='progress-bar bg-info'></div>
         </div>
@@ -108,7 +108,7 @@ while(!feof($dados)){
             <i class='bi bi-person-standing'></i>
             <i class='bi bi-person-standing-dress'></i> 
         </div>
-    <div class='progress-stacked mb-4'>
+    <div class='progress-stacked mb-4 bg-primary-subtle'>
         <div class='progress' role='progressbar' style='width: $percentualHomens%'>
             <div class='progress-bar bg-info'></div>
         </div>
@@ -117,9 +117,6 @@ while(!feof($dados)){
         </div>
     </div>
     ";
-
-
-
         
     }
 
