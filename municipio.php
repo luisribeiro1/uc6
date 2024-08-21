@@ -6,6 +6,8 @@
 $ufParametro = $_GET["uf"];
 
 include('uteis.php');
+include('info_estados.php');
+include('cidades.php');
 $template = file_get_contents("template.html", "r");
 
 $arquivo = "arquivos_de_dados/municipio.csv";
@@ -64,14 +66,14 @@ while(!feof($dados)){
           
 
                 if($ufAnterior != $uf){
-                    $tabela.="<tr><td colspan='10' class='text-center'><h4>Estado $correcao</h4></td></tr>";
+                    $tabela.="<tr><td colspan='10' class='text-center'><h4>Estado do $ufParametro</h4></td></tr>";
                 }
 
                 $tabela.="
                 <tr>
                     <td>$codigo</th>
                     <td>$uf</th>
-                    <td class='text-center'>$estado</td>
+                    <td class='text-center'><a href= 'cidades.php?codigo=$codigo'</a>$estado</td>
                     <td class='text-end'>$pop2000_f</td>
                     <td class='text-end'>$homens_f</td>
                     <td class='text-end'>$mulheres_f</td>
@@ -97,6 +99,7 @@ $titulo = "Estado  ". $correcao[$ufParametro]."  " . $nomeEstados[$ufParametro];
 
 
 $template = str_replace("[[titulo]]", $titulo, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
 
 echo $template;

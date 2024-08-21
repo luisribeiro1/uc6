@@ -85,6 +85,7 @@ $titulo = "Dados populacionais dos estados brasileiros";
 # titulo.
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[conteudo]]", $conteudo, $template);
+$template = str_replace("[[tabela]]","", $template);
 
 echo $template;
 
