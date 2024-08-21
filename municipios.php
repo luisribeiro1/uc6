@@ -8,6 +8,7 @@ $ufParametro = $_GET["uf"];
 
 include('uteis.php');
 include('info_estado.php');
+include('cidade.php');
 
 $template = file_get_contents("template.html", "r");
 
@@ -18,6 +19,7 @@ $dados = fopen($arquivo, "r");
 
 $tabela = "";
 $ufAnterior = "";
+$cidade = "";
 
 while(!feof($dados)){
     $linha = fgets($dados);
@@ -40,7 +42,7 @@ while(!feof($dados)){
         if($tabela==""){
             $tabela.="
             <tr>
-                <th>$codigo</th>
+                <th >$codigo</th>
                 <th>$uf</th>
                 <th>$estado</th>
                 <th>$pop2000</th>
@@ -70,7 +72,7 @@ while(!feof($dados)){
                 <tr>
                     <td>$codigo</th>
                     <td>$uf</th>
-                    <td class=''>$estado</td>
+                    <td class='text-end'><a href= 'cidade.php?codigo=$codigo'</a>$estado</td>
                     <td class='text-end'>$pop2000</td>
                     <td class='text-end'>$homens</td>
                     <td class='text-end'>$mulheres</td>
@@ -97,6 +99,11 @@ if($ufParametro == "DF"){
 $titulo = "Estado  ".$certo[$ufParametro]." ". $nomeEstados[$ufParametro];
 
 }
+
+
+
+
+
 $template = str_replace("[[titulo]]", $titulo, $template);
 $template = str_replace("[[conteudo]]", $info_estado, $template);
 $template = str_replace("[[tabela]]", $tabela, $template);
