@@ -75,4 +75,4 @@ switch(true){
     default:
         echo "Não é uma nota Válida";
         break;
-}
+    }
