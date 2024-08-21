@@ -6,8 +6,6 @@ include('uteis.php');
 
 $ufParametro = $_GET["uf"];
 
-
-
 include('info_estado.php');
 
 $template = file_get_contents("template.html");
@@ -82,7 +80,7 @@ while(!feof($dados)){
         <td>$pop2021_f</td>
         <td>
         <div class='d-inline-flex fs-dash'>
-            <a href='cidade.php?uf=$uf&municipios=$municipios' class='btn btn-dash small mx-2'><i class='bi bi-search'></i></a>
+        <a href='cidade.php?cidade=$municipios&uf=$uf' class='btn btn-dash small mx-2'><i class='bi bi-search'></i></a>
         </div>
         </td>
         </tr>
