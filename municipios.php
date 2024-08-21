@@ -69,7 +69,7 @@ while(!feof($dados)){
             <tr>
             <td class='text-center'>$codigo</td>
             <td class='text-center'>$uf</td>
-            <td class='text-center'>$municipio</td>
+            <td class='text-center'><a href='cidade.php?codigo=$codigo'>$municipio</a></td>
             <td class='text-end'>$homens_f</td>
             <td class='text-end'>$mulheres_f</td>
             <td class='text-end'>$urbana_f</td>
