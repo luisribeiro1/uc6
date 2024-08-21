@@ -8,6 +8,7 @@ $ufParametro = $_GET["uf"];
 include('uteis.php');
 include('info_estado.php');
 
+
 $template = file_get_contents("template.html");
 
 $arquivo = "arquivos_de_dados/municipios.csv";
@@ -84,7 +85,7 @@ while(!feof($dados)) {
                     <tr>
                         <td>$codigo</td>
                         <td>$uf</td>
-                        <td>$nomeEstado</td>
+                        <td><a href='cidade.php?codigo=$codigo'>$nomeEstado</a></td>
                         <td>$pop2000</td>
                         <td>$homens_f</td>
                         <td>$mulheres_f</td>

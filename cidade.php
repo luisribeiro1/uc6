@@ -1,56 +1,53 @@
-<?php   
+<?php
+$codigoParametro = $_GET["codigo"];
 
-$arquivo = "arquivos_de_dados/estados.csv";
+
+$template = file_get_contents("template.html");
+
+$arquivo = "arquivos_de_dados/municipios.csv";
 
 $dados = fopen($arquivo, "r");
 
+$titulo="";
+
 $info_estado = "";
-
-
 while(!feof($dados)) {
 
     $linha = fgets($dados);
 
     $colunas = explode(";", $linha);
 
-    if (count($colunas) >= 13) {
-
-        $uf = $colunas [0];
-        $nomeEstado = $colunas[1];
-        $pop2000 = (int)$colunas[2];
-        $homens = $colunas[3];
-        $mulheres = $colunas[4];
-        $urbana = $colunas[5];
-        $rural = $colunas[6];
-        $pop2010 = (int)$colunas[7];
-        $pop2021 = (int)$colunas[8];
-        $cidades = $colunas[9];
-        $quantidade_cidades = $colunas[10];
-        $capital = $colunas[11];
-        $gentilico = $colunas[12]; 
+    if (count($colunas) >= 10) {
 
         
-        if($ufParametro == $uf && $uf!='UF'){
+        $codigo = $colunas[0];
+        $uf = $colunas [1];
+        $nomeEstado = $colunas[2];
+        $pop2000 = $colunas[3];
+        $homens = $colunas[4];
+        $mulheres = $colunas[5];
+        $urbana = $colunas[6];
+        $rural = $colunas[7];
+        $pop2010 = $colunas[8];
+        $pop2021 = $colunas[9];
+         
+        
+        if($codigoParametro == $codigo){
             
-            #incluir as primeiras informações do estado
-            $info_estado = "<p>
-            Gentílico: <strong> $gentilico </strong> |
-            Capital: <strong> $capital </strong> |
-            Número de municípios: <strong> $quantidade_cidades </strong> 
-            </p>";
+            
+            
 
-
-            # definir os percentuais da população
+          
             $percentualBase = $pop2021 + ($pop2021 * 10 / 100);
             $porc_2000 = $pop2000 / $percentualBase * 100;
             $porc_2010 = $pop2010 / $percentualBase * 100;
             $porc_2021 = $pop2021 / $percentualBase * 100;
 
-            # Definir os percentuais de população urbama e rural
+           
             $percentualUrbana = $urbana / $pop2010 * 100;   
             $percentualRural = $rural / $pop2010 * 100; 
 
-            # Definir os percentuais da população de homens e mulheres 
+           
             $percentualHomens= $homens / $pop2010 * 100;   
             $percentualMulheres = $mulheres / $pop2010 * 100; 
             
@@ -59,7 +56,9 @@ while(!feof($dados)) {
             $pop2010 = number_format($pop2010,0,"",".");
             $pop2021 = number_format($pop2021,0,"",".");
             
-
+            $titulo.="
+                <h1 class='text-center'> $nomeEstado</h1>
+                    ";
 
             $info_estado.= "
             <div class='col-md-12 mb-3 '  >
@@ -83,10 +82,10 @@ while(!feof($dados)) {
             </div>
             <div class='progress-stacked mb-3 ' >
                 <div class='progress' role='progressbar' style='width: $percentualUrbana%'>
-                    <div class='progress-bar bg-warning'></div>
+                    <div class='progress-bar bg-warning'>$percentualRural</div>
                 </div>
                 <div class='progress' role='progressbar' style='width: $percentualRural%'>
-                    <div class='progress-bar bg-success'></div>
+                    <div class='progress-bar bg-success'>$percentualRural</div>
                 </div>
             </div>
 
@@ -96,15 +95,26 @@ while(!feof($dados)) {
             </div>
             <div class='progress-stacked mb-3 ' >
                 <div class='progress' role='progressbar' style='width: $percentualHomens%'>
-                    <div class='progress-bar bg-primary'></div>
+                    <div class='progress-bar bg-primary'>$percentualHomens</div>
                 </div>
                 <div class='progress' role='progressbar' style='width: $percentualMulheres%'>
                     <div class='progress-bar bg-danger'>$percentualMulheres</div>
                 </div>
             </div>";
             
+            
         }
 
     }
+    
 }
+
+
+
+$template = str_replace("[[titulo]]", $titulo, $template);
+$template = str_replace("[[conteudo]]", $info_estado, $template);
+$template = str_replace("[[tabela]]", " ", $template);
+
+
+echo $template;
     
