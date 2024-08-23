@@ -53,15 +53,14 @@ while(!feof($dados)){
         <div class='card-body text-center'>
             <span class='fw-bold'>$uf - $nomeEstado</span><br>
             <span class='fs-7'>
-              <i class='bi bi-person-standing text-info'></i> 49,85%
-              <i class='bi bi-person-standing-dress text-danger'></i> 51,12%
+                <i class='bi bi-person-standing text-info'></i> $homens
+                <i class='bi bi-person-standing-dress text-danger'></i> $mulheres
             </span><br>
             <span class='fs-7'>
-              <i class='bi bi-tree-fill text-success'></i> 13,25%
-              <i class='bi bi-building-fill text-primary'></i> 86,69%
-            </span>
-            <br>
-            <A href='municipios.php?uf=$uf'>ver municipios</a>
+              <i class='bi bi-tree-fill text-success'></i> $rural
+              <i class='bi bi-building-fill text-primary'></i> $urbana
+            </span><br>
+            <a href='municipios.php?uf=$uf' class='btn bg-dark-subtle'>Ver municípios</a>
         </div>
       </div>
       </div>";
@@ -70,19 +69,11 @@ while(!feof($dados)){
 }  
     
 }
-
-
-if($nomeEstado = DF){
-    $titulo = "Estado".reposicao[$ufParamentroo].$nomesEstados[$ufParametro];
-    if($nomeEstado = DF){
-      $titulo"";
-    }else[
-      $titulo = "Estado".
-    ]
-    }
+    $titulo = "Dados populacionais dos estados brasileiros:";
 
     # Localizar a marcação [[titulo]] e subistituir pelo conteudo da variavel $titulo
     $tamplate = str_replace("[[titulo]]",$titulo,$tamplate);
     $tamplate = str_replace("[[conteudo]]",$conteudo,$tamplate);
+    $tamplate = str_replace("[[tabela]]","",$tamplate);
     
-    echo $tamplate;
+    echo $tamplate; 

@@ -1,12 +1,13 @@
 <?php
 # Caminho do arquivo
-$arquivo = "arquivos_de_dados/estados.csv";
+$arquivo = "arquivos_de_dados/municipios.csv";
+include('uteis.php');
 
 # Função PHP para leirtura de arquivos externos
 # r indica que o arquivo será aberto apenas para a leitura.
 $dados = fopen($arquivo,"r");
 
-$info_estado = "";
+$info_cidade = "";
 
 # Percorrer dados, até que encontre o final do arquivo
 while(!feof($dados)){
@@ -17,30 +18,19 @@ while(!feof($dados)){
     $colunas = explode(";",$linha);
 
     # Verificar se existe todos os itens no array
-    if(count($colunas) >= 13){
+    if(count($colunas) >= 10){
 
-        $uf = $colunas[0];
-        $nomeEstado = $colunas[1];
-        $pop2000 = (int)$colunas[2];
-        $homens = $colunas[3];
-        $mulheres = $colunas[4];
-        $urbana = $colunas[5];
-        $rural = $colunas[6];
-        $pop2010 = (int)$colunas[7];
-        $pop2021 = (int)$colunas[8];
-        $quantidade_cidades = $colunas[9];
-        $capital = $colunas[10];
-        $gentilico = $colunas[11];
-        $area = $colunas[12];
+        $uf = $colunas[1];
+        $nomeMunicipio = $colunas[2];
+        $pop2000 = (int)$colunas[3];
+        $homens = $colunas[4];
+        $mulheres = $colunas[5];
+        $urbana = $colunas[6];
+        $rural = $colunas[7];
+        $pop2010 = (int)$colunas[8];
+        $pop2021 = (int)$colunas[9];
 
-        if($ufParametro == $uf && $uf != 'UF'){
-
-            # Incluir as primeiras infromações do estado
-            $info_estado = "<p>
-            Gentílico: <strong>$gentilico</strong> |
-            Capital: <strong>$capital</strong> |
-            Números de Municípios: <strong>$quantidade_cidades</strong>
-            </p>";
+        if($CidadeParametro == $nomeMunicipio && $ufParametro == $uf && $uf != 'UF'){
 
             # Definir os percentuais da população:
             $percentualBase = $pop2021 + ($pop2021 * 10 / 100);
@@ -63,7 +53,11 @@ while(!feof($dados)){
             
             // echo "$percentualBase | $porc_2000 | $porc_2010 | $porc_2021";
 
-            $info_estado .= "
+            $info_cidade .= "<h3 class='text-center mb-4'>
+                Estado: <b>$uf - $nomesEstados[$uf]</b> 
+            </h3>";
+
+            $info_cidade .= "
             <div class='col-md-12 mb-4'>
                 <div class='progress mb-2' style='height: 30px' role='progressbar'>
                     <div class='progress-bar bg-secondary' style='width: $porc_2000%'>$pop2000 em 2000</div>
@@ -76,7 +70,7 @@ while(!feof($dados)){
                 </div>
             </div>";
 
-            $info_estado .= "
+            $info_cidade .= "
             <div class='d-flex justify-content-between'>
                 <i class='bi bi-building-fill text-primary'></i>
                 <i class='bi bi-tree-fill text-success'></i>
@@ -93,7 +87,7 @@ while(!feof($dados)){
             </div>
             ";
             
-            $info_estado .= "
+            $info_cidade .= "
             <div class='d-flex justify-content-between'>
               <i class='bi bi-person-standing text-info'></i>
               <i class='bi bi-person-standing-dress text-danger'></i>

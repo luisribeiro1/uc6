@@ -45,6 +45,8 @@
                     <th class='text-end'>$rural</th>
                     <th class='text-end'>$pop2010</th>
                     <th class='text-end'>$pop2021</th>
+                    <th class='text-end'></th>
+
                 </tr>
                 ";
 
@@ -73,9 +75,11 @@
                 <td class='text-end'>$rural_f</td>
                 <td class='text-end'>$pop2010_f</td>
                 <td class='text-end'>$pop2021_f</td>
+                 <td class='text-center'><a href='cidade.php?cidade=$estado&uf=$uf' class='btn bg-dark-subtle'>Visualisar</a></td>
                 </tr>
                 ";
-                
+            
+            
                 $ufAnterior = $uf;
                 
             }
