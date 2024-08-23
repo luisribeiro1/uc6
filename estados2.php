@@ -81,7 +81,7 @@ while(!feof($dados)){
                     <i class='bi bi-building-fill text-primary'></i> $urbana
                 </span>
                 <br>
-                <a href= 'municipios.php?uf=$uf'>ver municipios</a>
+                <a href='municipios.php?uf=$uf'>ver municipios</a>
             </div>
         </div>
     </div>

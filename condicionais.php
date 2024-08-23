@@ -98,6 +98,6 @@ switch(true){
         break;
     default:
     echo "Não é uma nota valida";
-    break
-
+    break;
+    
 }

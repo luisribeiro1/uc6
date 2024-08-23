@@ -42,7 +42,7 @@ function valorMedio($lista){
     count($lista);
 
     foreach($lista as $numero){
-        $soma + =  $numero ;
+        $soma +  $numero ;
         
                 
     }
