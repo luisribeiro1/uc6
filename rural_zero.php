@@ -3,23 +3,30 @@
 $rural_zero =[];
 
 $arquivo = "arquivo_de_dados/municipios.csv";
-$dados = fopen($arquivo, "r");
+$file = fopen("municipios.csv","r");
 
 
 
-    while (($linha = fgetcsv($arquivo_de_dados)) !== false){
-        if((int)
-        $linha[$indice_populacao_rural]===0){
-    
-    $rural_zero[$linha[$indice_uf]]=$linha[$indice_cidade];
+    while (($row = fgetcsv($file))=== false ){
+
+        
+        $cidade = $row[0];
+        $uf = $row [1];
+
+        $populacao_rural = $row[2];
+
+        if ($populacao_rural == 0){
+            $rural_zero[$uf] = $cidade;
+
+        }
+                      
     
     }
 
-}
-fclose($arquivo_de_dados);
- asort($rural_zero);
+Ksort($rural_zero);
+
 
  foreach($rural_zero as $uf => $cidade){
-    echo "• $UF: $uf - cidade: $cidade <br> ";
+    echo "Cidade: $cidade, $UF: $uf"; 
 
 }
