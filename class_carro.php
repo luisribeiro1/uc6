@@ -45,7 +45,7 @@ class Carro {
     # Método para verificar e gerar o aviso de velocidade
     public function verificarVelocidade(){
         if ($this->velocidade > 80) {
-            echo "Reduza a velocidade!";
+            return "Reduza a velocidade!";
         }
     }
 
@@ -68,6 +68,7 @@ echo $carro1->obterVelocidade() . "km/h <br>";
 
 $carro1->acelerar(40);
 echo $carro1->obterVelocidade() . "km/h <br>";
+echo $carro1->verificarVelocidade();
 
 echo "<hr>";
 echo $carro2->obterCaracteristicas();
