@@ -28,5 +28,5 @@ while(!feof($dados)) {
 }
 
 foreach($rural_zero as $chave => $valor){
-    echo "•$chave: $valor <br>";
+    echo "♪♫$chave: $valor <br>";
 }
