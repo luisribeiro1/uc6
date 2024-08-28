@@ -45,17 +45,16 @@ class Carro {
         return $this->velocidade;
     }
 
-    public function avisoExcessoVelocidade(){
+    public function ExcessoVelocidade(){
         
-        if($this->velocidade > 80){
-            $this->velocidade = 0;
-        }
-         return $this->AvisoReduzaVelocidade;
-         
-
-             
-
-         
+        if ($this->velocidade > 79){
+         return $this->velocidade. "Excesso de Velocidade";
+        }else{
+           return $this->velocidade;
+        } 
+    }
+      
+        
 
 }
 
