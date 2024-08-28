@@ -52,10 +52,10 @@ class Carro{
 
     #Método aviso de excesso de velocidade
     public function avisoExcessoVelocidade(){
-        if($this->velocidade > 80){
-         echo $this->velocidade . "  Excesso de Velocidade";
+        if($this->velocidade > 79){
+         echo $this->velocidade . "  km/h " . "  Excesso de Velocidade <br>";
         }else{
-          return $this->velocidade;
+          return $this->velocidade . "  km/h <br>";
         }
         
     }
@@ -68,15 +68,15 @@ $carro2 = new Carro("Honda", "Fit" ,"Cinza");
 
 echo $carro1->obterCaracteristicas();
 $carro1->acelerar(40);
-echo "<br>". $carro1->avisoExcessoVelocidade() . "  km/h <br>";
+echo "<br>". $carro1->avisoExcessoVelocidade();
 $carro1->freiar(15);    
-echo  $carro1->avisoExcessoVelocidade() . "  km/h <br>";
+echo  $carro1->avisoExcessoVelocidade();
 $carro1->acelerar(25);
-echo  $carro1->avisoExcessoVelocidade() . "  km/h <br>";
+echo  $carro1->avisoExcessoVelocidade();
 $carro1->acelerar(100);
-echo $carro1->avisoExcessoVelocidade() . "  km/h <br>";
+echo $carro1->avisoExcessoVelocidade();
 $carro1->freiar(72);
-echo  $carro1->avisoExcessoVelocidade() . "  km/h <br>";
+echo  $carro1->avisoExcessoVelocidade();
 
 echo "<hr>";
 echo $carro2->obterCaracteristicas();
