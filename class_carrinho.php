@@ -9,8 +9,8 @@ class Carrinho{
         # Se a sessão não existir 
         if(!isset($_SESSION['carrinho'])){
             $_SESSION['carrinho'] = []; // cria a sessão com um array vazio
+            $_SESSION['desconto'] = 0;
         }
-        
     }
 
     public function adicionar($item){ // recebe o array como parâmetro
@@ -18,11 +18,19 @@ class Carrinho{
     }
 
     public function remover($indice){
-        
+        unset($_SESSION['carrinho'][$indice]);
     }
     
     public function listar(){
         return $_SESSION['carrinho'];
     }
 
+ 
+    public function aplicarDesconto($desconto){
+        $_SESSION['desconto'] = $desconto;
+    }
+
+    public function pegarDesconto(){
+      return $_SESSION['desconto']; 
+    }
 }
