@@ -12,6 +12,7 @@ class carrinho {
         if(!isset($_SESSION['carrinho'])){
 
             $_SESSION['carrinho'] = []; // Cria a sessão com o array vazio
+            $_SESSION['desconto'] = 0;
         }
     }
 
@@ -20,10 +21,18 @@ class carrinho {
     }
     
     public function remover($indice){
-
+        unset($_SESSION['carrinho'][$indice]);
     }
     
     public function listar(){
         return $_SESSION['carrinho'];
+    }
+
+    public function aplicarDesconto($desconto){
+        $_SESSION['desconto'] = $desconto;
+    }
+
+    public function pegarDesconto(){
+        return $_SESSION['desconto'];
     }
 }
