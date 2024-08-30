@@ -19,10 +19,18 @@ class Carrinho {
     }
 
     public function remover($indice) {
-
+        unset($_SESSION['carrinho'][$indice]);
     }
 
     public function listar() {
         return $_SESSION['carrinho'];
+    }
+
+    public function desconto(){
+        return $_SESSION['desconto'];
+    }
+
+    public function aplicarDesconto(){
+       
     }
 }
