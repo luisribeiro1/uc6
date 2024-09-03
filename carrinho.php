@@ -33,6 +33,7 @@ elseif(isset($_POST["cupomDesconto"])){ // Se o cupom de desconto foi enviado
     if ($desconto !== '') {
         $carrinho->aplicarDesconto($desconto);
     }
+
 }
 
 }
@@ -61,8 +62,8 @@ if (empty ($array_itens)) {
 
         $carrinho_html .= "
         <tr>
-            <td></td>
-            <td></td>
+            <td>$nome</td>
+            <td>$quantidade</td>
             <td class = 'text-end'>$preco</td>
             <td class = 'text-end'>$subtotal</td>
             <td class = 'text-center'>
